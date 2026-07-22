@@ -1,0 +1,1134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Service | Boss Moto Expertz – Schedule Your Appointment Online</title>
+  <meta name="description" content="Book a motorcycle service appointment at Boss Moto Expertz. Choose your service type, preferred date and time – we'll confirm within 30 minutes." />
+  <meta name="keywords" content="book motorcycle service, bike service appointment, Boss Moto Expertz booking, schedule service online" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Booking Page Extras ── */
+
+    /* Booking Layout */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .booking-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Left Panel */
+    .booking-info {
+      position: sticky;
+      top: 100px;
+    }
+
+    .booking-info h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .booking-info h2 span {
+      color: var(--orange);
+    }
+
+    .booking-info .tagline {
+      color: var(--silver-dim);
+      font-size: 0.92rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Promise Cards */
+    .promise-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .promise-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      transition: border-color var(--t-fast), transform var(--t-fast);
+    }
+
+    .promise-item:hover {
+      border-color: rgba(249,115,22,0.4);
+      transform: translateX(4px);
+    }
+
+    .promise-item .pi-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .promise-item .pi-text {
+      font-size: 0.88rem;
+      color: var(--silver);
+      line-height: 1.4;
+    }
+
+    .promise-item .pi-text strong {
+      display: block;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    /* Rating Display */
+    .booking-rating {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      backdrop-filter: var(--glass-blur);
+    }
+
+    .booking-rating .stars {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    .booking-rating .rating-text {
+      font-size: 0.82rem;
+      color: var(--silver-dim);
+    }
+
+    .booking-rating .rating-text strong {
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    /* FORM */
+    .booking-form-container {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+    }
+
+    /* Progress Steps */
+    .booking-steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      counter-reset: step;
+    }
+
+    .step-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      position: relative;
+    }
+
+    .step-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 55%;
+      right: -45%;
+      height: 2px;
+      background: var(--glass-border);
+      z-index: 0;
+    }
+
+    .step-item.done:not(:last-child)::after,
+    .step-item.current:not(:last-child)::after {
+      background: var(--orange);
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--glass-border);
+      background: var(--dark);
+      color: var(--silver-dim);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      transition: all var(--t-fast);
+    }
+
+    .step-item.current .step-num {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: var(--orange-glow);
+      box-shadow: 0 0 12px var(--orange-glow);
+    }
+
+    .step-item.done .step-num {
+      border-color: var(--green);
+      background: var(--green-glow);
+      color: var(--green);
+    }
+
+    .step-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--silver-dim);
+    }
+
+    .step-item.current .step-label { color: var(--orange); }
+    .step-item.done   .step-label  { color: var(--green); }
+
+    /* Form panels */
+    .form-panel { display: none; }
+    .form-panel.active { display: block; }
+
+    .panel-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+
+    .panel-sub {
+      font-size: 0.85rem;
+      color: var(--silver-dim);
+      margin-bottom: 1.75rem;
+    }
+
+    /* Form Controls */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .form-group label {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--silver);
+      text-transform: uppercase;
+    }
+
+    .form-group label .req { color: var(--orange); margin-left: 2px; }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(6,13,26,0.6);
+      border: 1.5px solid var(--glass-border);
+      border-radius: 10px;
+      color: var(--white);
+      font-size: 0.92rem;
+      font-family: var(--font-body);
+      transition: border-color var(--t-fast), box-shadow var(--t-fast);
+      outline: none;
+    }
+
+    .form-control::placeholder { color: var(--silver-dim); opacity: 0.6; }
+
+    .form-control:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px var(--orange-glow);
+    }
+
+    select.form-control option {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* Service Select Cards */
+    .service-select-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .service-select-card {
+      padding: 0.9rem 0.75rem;
+      border: 1.5px solid var(--glass-border);
+      border-radius: 12px;
+      background: rgba(6,13,26,0.4);
+      cursor: pointer;
+      transition: all var(--t-fast);
+      text-align: center;
+    }
+
+    .service-select-card:hover {
+      border-color: var(--orange);
+      background: var(--orange-glow);
+    }
+
+    .service-select-card.selected {
+      border-color: var(--orange);
+      background: var(--orange-glow);
+      box-shadow: 0 4px 16px var(--orange-glow);
+    }
+
+    .service-select-card .sc-icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .service-select-card .sc-label {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--silver);
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+    }
+    .service-select-card.selected .sc-label { color: var(--orange); }
+
+    /* Nav Buttons */
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+
+    .btn-back {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: 1.5px solid var(--glass-border);
+      border-radius: 10px;
+      color: var(--silver-dim);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.7rem 1.2rem;
+      cursor: pointer;
+      transition: all var(--t-fast);
+    }
+
+    .btn-back:hover {
+      border-color: var(--silver);
+      color: var(--white);
+    }
+
+    .btn-next, .btn-submit {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--grad-orange);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.75rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px var(--orange-glow);
+      transition: all var(--t-fast);
+    }
+
+    .btn-next:hover, .btn-submit:hover {
+      box-shadow: 0 8px 32px rgba(249,115,22,0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Summary Panel */
+    .summary-block {
+      background: rgba(6,13,26,0.5);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-block h5 {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--glass-border);
+      font-size: 0.87rem;
+    }
+
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row .sr-label { color: var(--silver-dim); }
+    .summary-row .sr-value { color: var(--white); font-weight: 600; text-align: right; max-width: 60%; }
+
+    .terms-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .terms-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      accent-color: var(--orange);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .terms-check span {
+      font-size: 0.84rem;
+      color: var(--silver-dim);
+      line-height: 1.5;
+    }
+
+    .terms-check span a {
+      color: var(--orange);
+      text-decoration: underline;
+    }
+
+    /* Success State */
+    .booking-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .booking-success .success-anim {
+      font-size: 4rem;
+      margin-bottom: 1.25rem;
+      animation: successBounce 0.6s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    @keyframes successBounce {
+      from { transform: scale(0.5); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .booking-success h3 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .booking-success p {
+      color: var(--silver-dim);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto 0.5rem;
+    }
+
+    .booking-success .confirmation-id {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--orange-glow);
+      border: 1px solid rgba(249,115,22,0.4);
+      border-radius: 8px;
+      font-family: var(--font-brand);
+      font-size: 0.9rem;
+      color: var(--orange);
+      letter-spacing: 0.1em;
+    }
+
+    .booking-success .success-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    /* Time Slot Grid */
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .time-slot {
+      padding: 0.55rem;
+      border: 1.5px solid var(--glass-border);
+      border-radius: 8px;
+      background: rgba(6,13,26,0.4);
+      color: var(--silver-dim);
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--t-fast);
+      letter-spacing: 0.04em;
+    }
+
+    .time-slot:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: var(--orange-glow);
+    }
+
+    .time-slot.selected {
+      border-color: var(--orange);
+      background: var(--orange-glow);
+      color: var(--orange);
+      box-shadow: 0 2px 10px var(--orange-glow);
+    }
+
+    .time-slot.unavailable {
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Boss Moto Expertz Home">
+        <img src="assets/logo.png" alt="Boss Moto Expertz Logo" onerror="this.style.display='none'" />
+        <div class="nav-brand">
+          <span class="brand-boss">BOSS</span>
+          <span class="brand-sub">MOTO EXPERTZ</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn-primary btn-sm nav-cta" id="navBookBtn">🔧 Book Service</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="booking.html" class="btn btn-primary">🔧 Book Service</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="bookingPageTitle">
+    <div class="page-hero-bg"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Book Service</span>
+      </nav>
+      <div class="section-label">Schedule Your Appointment</div>
+      <h1 class="section-title" id="bookingPageTitle" style="font-size:clamp(2.2rem,5vw,3.5rem);">Book a Service</h1>
+      <p class="section-subtitle">Quick, easy, hassle-free. We'll confirm your appointment within 30 minutes.</p>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section class="section-py" id="booking" style="background:var(--deep-blue);" aria-label="Service Booking">
+    <div class="container">
+      <div class="booking-layout">
+
+        <!-- LEFT: Info Panel -->
+        <aside class="booking-info reveal">
+          <div class="section-label" style="margin-bottom:0.5rem;">Why Book With Us</div>
+          <h2>Your Ride Deserves<br><span>Expert Care</span></h2>
+          <p class="tagline">
+            Book online in under 3 minutes. Our team will contact you to confirm and answer any questions before your visit.
+          </p>
+
+          <div class="promise-list">
+            <div class="promise-item">
+              <span class="pi-icon">⏱️</span>
+              <div class="pi-text">
+                <strong>30-Min Confirmation</strong>
+                We'll call to confirm your slot within 30 minutes of booking.
+              </div>
+            </div>
+            <div class="promise-item">
+              <span class="pi-icon">💰</span>
+              <div class="pi-text">
+                <strong>Transparent Pricing</strong>
+                No hidden charges. You get a detailed quote before work starts.
+              </div>
+            </div>
+            <div class="promise-item">
+              <span class="pi-icon">🔧</span>
+              <div class="pi-text">
+                <strong>Genuine Parts Only</strong>
+                OEM or manufacturer-recommended parts for all service work.
+              </div>
+            </div>
+            <div class="promise-item">
+              <span class="pi-icon">🚚</span>
+              <div class="pi-text">
+                <strong>Free Pickup & Drop</strong>
+                Available within the service area on select services.
+              </div>
+            </div>
+            <div class="promise-item">
+              <span class="pi-icon">✅</span>
+              <div class="pi-text">
+                <strong>Quality Guarantee</strong>
+                All work comes with our satisfaction guarantee and follow-up check.
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-rating">
+            <div>
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <div style="font-size:0.72rem;color:var(--silver-dim);margin-top:0.2rem;">4.9 / 5.0 Rating</div>
+            </div>
+            <div class="rating-text">
+              <strong>98%</strong> of customers<br>would recommend us<br>
+              <span style="font-size:0.75rem;">Based on 500+ reviews</span>
+            </div>
+          </div>
+
+          <!-- Contact Fallback -->
+          <div style="margin-top:1.5rem;padding:1rem 1.25rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:var(--glass-blur);">
+            <p style="font-size:0.82rem;color:var(--silver-dim);margin-bottom:0.75rem;">Prefer to call instead?</p>
+            <a href="tel:+916379929963" class="quick-action-btn" id="bookCallBtn" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.2rem;border-radius:10px;border:1.5px solid var(--glass-border);background:var(--glass-bg);color:var(--white);font-family:var(--font-heading);font-size:0.88rem;font-weight:600;text-decoration:none;transition:all 0.2s ease;">
+              📞 +91 63 799 299 63
+            </a>
+          </div>
+        </aside>
+
+        <!-- RIGHT: Booking Form -->
+        <div>
+          <div class="booking-form-container reveal reveal-delay-2">
+
+            <!-- Progress Steps -->
+            <div class="booking-steps" aria-label="Booking Progress" id="bookingSteps">
+              <div class="step-item current" id="step1Indicator">
+                <div class="step-num">1</div>
+                <div class="step-label">Service</div>
+              </div>
+              <div class="step-item" id="step2Indicator">
+                <div class="step-num">2</div>
+                <div class="step-label">Details</div>
+              </div>
+              <div class="step-item" id="step3Indicator">
+                <div class="step-num">3</div>
+                <div class="step-label">Schedule</div>
+              </div>
+              <div class="step-item" id="step4Indicator">
+                <div class="step-num">4</div>
+                <div class="step-label">Confirm</div>
+              </div>
+            </div>
+
+            <form id="bookingForm" novalidate aria-label="Service Booking Form">
+
+              <!-- PANEL 1: Service Type -->
+              <div class="form-panel active" id="panel1">
+                <div class="panel-title">Select Service Type</div>
+                <p class="panel-sub">Choose the primary service you need. You can add more details later.</p>
+
+                <div class="service-select-grid" id="serviceSelectGrid" role="group" aria-label="Service Type Selection">
+                  <div class="service-select-card" data-service="General Service" tabindex="0" role="button" id="svc-general">
+                    <div class="sc-icon">🔧</div>
+                    <div class="sc-label">General Service</div>
+                  </div>
+                  <div class="service-select-card" data-service="Engine Repair" tabindex="0" role="button" id="svc-engine">
+                    <div class="sc-icon">🔩</div>
+                    <div class="sc-label">Engine Repair</div>
+                  </div>
+                  <div class="service-select-card" data-service="Brake Service" tabindex="0" role="button" id="svc-brake">
+                    <div class="sc-icon">🛑</div>
+                    <div class="sc-label">Brake Service</div>
+                  </div>
+                  <div class="service-select-card" data-service="Suspension Work" tabindex="0" role="button" id="svc-suspension">
+                    <div class="sc-icon">🌀</div>
+                    <div class="sc-label">Suspension Work</div>
+                  </div>
+                  <div class="service-select-card" data-service="ECU Tuning" tabindex="0" role="button" id="svc-ecu">
+                    <div class="sc-icon">💻</div>
+                    <div class="sc-label">ECU Tuning</div>
+                  </div>
+                  <div class="service-select-card" data-service="Custom Modification" tabindex="0" role="button" id="svc-custom">
+                    <div class="sc-icon">🎨</div>
+                    <div class="sc-label">Custom Mod</div>
+                  </div>
+                  <div class="service-select-card" data-service="Bike Painting" tabindex="0" role="button" id="svc-paint">
+                    <div class="sc-icon">🖌️</div>
+                    <div class="sc-label">Bike Painting</div>
+                  </div>
+                  <div class="service-select-card" data-service="Detailing & Wash" tabindex="0" role="button" id="svc-detail">
+                    <div class="sc-icon">✨</div>
+                    <div class="sc-label">Detailing</div>
+                  </div>
+                  <div class="service-select-card" data-service="Other / Not Sure" tabindex="0" role="button" id="svc-other">
+                    <div class="sc-icon">🔍</div>
+                    <div class="sc-label">Other</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="pickupCheck">Additional Options</label>
+                  <label class="terms-check" for="pickupCheck">
+                    <input type="checkbox" id="pickupCheck" name="pickup" />
+                    <span>I need <strong>Pickup & Drop</strong> service (available within 10km of workshop)</span>
+                  </label>
+                </div>
+
+                <div class="form-nav">
+                  <div></div>
+                  <button type="button" class="btn-next" id="next1Btn" onclick="goToStep(2)">
+                    Continue ›
+                  </button>
+                </div>
+              </div>
+
+              <!-- PANEL 2: Personal & Bike Details -->
+              <div class="form-panel" id="panel2">
+                <div class="panel-title">Your Details</div>
+                <p class="panel-sub">Tell us about yourself and your motorcycle so we can prepare.</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="bookName">Full Name <span class="req">*</span></label>
+                    <input type="text" id="bookName" name="name" class="form-control" placeholder="Your full name" required autocomplete="name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="bookPhone">Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="bookPhone" name="phone" class="form-control" placeholder="+91 98765 43210" required autocomplete="tel" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="bookEmail">Email Address</label>
+                  <input type="email" id="bookEmail" name="email" class="form-control" placeholder="For confirmation email" autocomplete="email" />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="bikeBrand">Bike Brand <span class="req">*</span></label>
+                    <select id="bikeBrand" name="brand" class="form-control" required>
+                      <option value="" disabled selected>Select brand…</option>
+                      <option>Royal Enfield</option>
+                      <option>KTM</option>
+                      <option>Yamaha</option>
+                      <option>Honda</option>
+                      <option>TVS</option>
+                      <option>Bajaj</option>
+                      <option>Suzuki</option>
+                      <option>Hero</option>
+                      <option>Jawa / Yezdi</option>
+                      <option>BMW</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="bikeModel">Model & Year <span class="req">*</span></label>
+                    <input type="text" id="bikeModel" name="model" class="form-control" placeholder="e.g. Himalayan 2022" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="bikeKm">Odometer (km)</label>
+                  <input type="number" id="bikeKm" name="km" class="form-control" placeholder="e.g. 15000" min="0" />
+                </div>
+
+                <div class="form-group">
+                  <label for="issueDesc">Describe the Issue / Request</label>
+                  <textarea id="issueDesc" name="issue" class="form-control" placeholder="Describe what's wrong or what you'd like done…"></textarea>
+                </div>
+
+                <div class="form-nav">
+                  <button type="button" class="btn-back" onclick="goToStep(1)">‹ Back</button>
+                  <button type="button" class="btn-next" id="next2Btn" onclick="goToStep(3)">Continue ›</button>
+                </div>
+              </div>
+
+              <!-- PANEL 3: Schedule -->
+              <div class="form-panel" id="panel3">
+                <div class="panel-title">Pick a Date & Time</div>
+                <p class="panel-sub">Choose your preferred appointment slot. We're open Mon–Sat 9AM–7PM, Sun 10AM–3PM.</p>
+
+                <div class="form-group">
+                  <label for="bookDate">Preferred Date <span class="req">*</span></label>
+                  <input type="date" id="bookDate" name="date" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Preferred Time Slot <span class="req">*</span></label>
+                  <div class="time-grid" id="timeGrid" role="group" aria-label="Time Slot Selection">
+                    <button type="button" class="time-slot" data-time="9:00 AM">9:00 AM</button>
+                    <button type="button" class="time-slot" data-time="9:30 AM">9:30 AM</button>
+                    <button type="button" class="time-slot" data-time="10:00 AM">10:00 AM</button>
+                    <button type="button" class="time-slot" data-time="10:30 AM">10:30 AM</button>
+                    <button type="button" class="time-slot" data-time="11:00 AM">11:00 AM</button>
+                    <button type="button" class="time-slot" data-time="11:30 AM">11:30 AM</button>
+                    <button type="button" class="time-slot" data-time="12:00 PM">12:00 PM</button>
+                    <button type="button" class="time-slot unavailable" data-time="12:30 PM">12:30 PM</button>
+                    <button type="button" class="time-slot" data-time="1:00 PM">1:00 PM</button>
+                    <button type="button" class="time-slot unavailable" data-time="1:30 PM">1:30 PM</button>
+                    <button type="button" class="time-slot" data-time="2:00 PM">2:00 PM</button>
+                    <button type="button" class="time-slot" data-time="2:30 PM">2:30 PM</button>
+                    <button type="button" class="time-slot" data-time="3:00 PM">3:00 PM</button>
+                    <button type="button" class="time-slot" data-time="3:30 PM">3:30 PM</button>
+                    <button type="button" class="time-slot" data-time="4:00 PM">4:00 PM</button>
+                    <button type="button" class="time-slot" data-time="4:30 PM">4:30 PM</button>
+                    <button type="button" class="time-slot" data-time="5:00 PM">5:00 PM</button>
+                    <button type="button" class="time-slot" data-time="5:30 PM">5:30 PM</button>
+                  </div>
+                  <input type="hidden" id="selectedTime" name="time" />
+                </div>
+
+                <div class="form-nav">
+                  <button type="button" class="btn-back" onclick="goToStep(2)">‹ Back</button>
+                  <button type="button" class="btn-next" id="next3Btn" onclick="goToStep(4)">Review Booking ›</button>
+                </div>
+              </div>
+
+              <!-- PANEL 4: Review & Confirm -->
+              <div class="form-panel" id="panel4">
+                <div class="panel-title">Review Your Booking</div>
+                <p class="panel-sub">Please check all details before submitting. We'll call to confirm within 30 minutes.</p>
+
+                <div class="summary-block" id="summaryBlock">
+                  <h5>Booking Summary</h5>
+                  <div class="summary-row">
+                    <span class="sr-label">Service</span>
+                    <span class="sr-value" id="sumService">—</span>
+                  </div>
+                  <div class="summary-row">
+                    <span class="sr-label">Name</span>
+                    <span class="sr-value" id="sumName">—</span>
+                  </div>
+                  <div class="summary-row">
+                    <span class="sr-label">Phone</span>
+                    <span class="sr-value" id="sumPhone">—</span>
+                  </div>
+                  <div class="summary-row">
+                    <span class="sr-label">Vehicle</span>
+                    <span class="sr-value" id="sumVehicle">—</span>
+                  </div>
+                  <div class="summary-row">
+                    <span class="sr-label">Date & Time</span>
+                    <span class="sr-value" id="sumDateTime">—</span>
+                  </div>
+                  <div class="summary-row" id="sumPickupRow" style="display:none;">
+                    <span class="sr-label">Pickup & Drop</span>
+                    <span class="sr-value" style="color:var(--green);">✓ Requested</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="terms-check" for="termsCheck" style="cursor:pointer;">
+                    <input type="checkbox" id="termsCheck" name="terms" required />
+                    <span>I agree to the <a href="#" onclick="return false;">Terms & Conditions</a> and confirm the details above are correct.</span>
+                  </label>
+                </div>
+
+                <div class="form-nav">
+                  <button type="button" class="btn-back" onclick="goToStep(3)">‹ Edit</button>
+                  <button type="submit" class="btn-submit" id="submitBookingBtn">
+                    📅 Confirm Booking
+                  </button>
+                </div>
+              </div>
+
+            </form>
+            <!-- /form -->
+
+            <!-- Success State -->
+            <div class="booking-success" id="bookingSuccessPanel" role="status">
+              <div class="success-anim">🎉</div>
+              <h3>Booking Confirmed!</h3>
+              <p>Your appointment request has been submitted successfully. Our team will call you within 30 minutes to confirm the slot.</p>
+              <div class="confirmation-id" id="confirmId">BME-XXXXXX</div>
+              <p style="margin-top:1rem;font-size:0.82rem;color:var(--silver-dim);">Keep this reference number handy.</p>
+              <div class="success-actions">
+                <a href="index.html" class="btn btn-outline" id="backHomeBtn">← Back to Home</a>
+                <a href="https://wa.me/916379929963" target="_blank" rel="noopener" class="btn btn-primary" id="whatsappConfirmBtn">💬 WhatsApp Us</a>
+              </div>
+            </div>
+
+          </div>
+          <!-- /booking-form-container -->
+        </div>
+        <!-- /Right -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Boss Moto Expertz" onerror="this.style.display='none'" />
+          <div class="nav-brand" style="margin-bottom:1rem;">
+            <span class="brand-boss">BOSS</span>
+            <span class="brand-sub">MOTO EXPERTZ</span>
+          </div>
+          <p>Your trusted workshop for motorcycle service, repair, and custom modifications. Professional care for every ride.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/boss_moto_expertz" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">📸</a>
+            <a href="https://www.facebook.com/Bossmotoexpertz" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">👤</a>
+            <a href="https://www.youtube.com/@Bossmotoexpertz" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">▶️</a>
+            <a href="https://wa.me/916379929963" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">💬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">→ Home</a></li>
+            <li><a href="about.html">→ About Us</a></li>
+            <li><a href="services.html">→ Services</a></li>
+            <li><a href="gallery.html">→ Gallery</a></li>
+            <li><a href="booking.html">→ Book Service</a></li>
+            <li><a href="contact.html">→ Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#maintenance">→ General Service</a></li>
+            <li><a href="services.html#repairs">→ Engine Repair</a></li>
+            <li><a href="services.html#performance">→ ECU Tuning</a></li>
+            <li><a href="services.html#modifications">→ Custom Builds</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>42, Amarar Jeeva Main Road, Nalvar Layout, Coimbatore</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <a href="tel:+916379929963">+91 63 799 299 63</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">💬</span>
+            <a href="https://wa.me/916379929963" target="_blank" rel="noopener">WhatsApp Us</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">🕐</span>
+            <span>Mon–Sat: 9:00 AM – 7:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span class="tagline">Boss Moto Expertz</span>. All Rights Reserved.</p>
+        <p class="footer-tagline">SERVICE · REPAIR · MODIFY</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <div class="whatsapp-float" aria-label="WhatsApp Chat">
+    <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+    <a href="https://wa.me/916379929963" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" id="whatsappBtn" aria-label="Contact on WhatsApp">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Booking Multi-Step Logic ── */
+    let currentStep = 1;
+    let selectedService = '';
+    let selectedTimeSlot = '';
+
+    // Set min date to today
+    (function () {
+      const dateInput = document.getElementById('bookDate');
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+    })();
+
+    // Service card selection
+    document.querySelectorAll('.service-select-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.service-select-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedService = card.dataset.service;
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    // Time slot selection
+    document.querySelectorAll('.time-slot:not(.unavailable)').forEach(slot => {
+      slot.addEventListener('click', () => {
+        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+        slot.classList.add('selected');
+        selectedTimeSlot = slot.dataset.time;
+        const hidden = document.getElementById('selectedTime');
+        if (hidden) hidden.value = selectedTimeSlot;
+      });
+    });
+
+    function updateStepIndicators(step) {
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`step${i}Indicator`);
+        if (!el) continue;
+        el.classList.remove('current', 'done');
+        if (i < step) el.classList.add('done');
+        else if (i === step) el.classList.add('current');
+      }
+    }
+
+    function goToStep(step) {
+      // Validation
+      if (step === 2 && !selectedService) {
+        alert('Please select a service type to continue.');
+        return;
+      }
+      if (step === 3) {
+        const name = document.getElementById('bookName').value.trim();
+        const phone = document.getElementById('bookPhone').value.trim();
+        const brand = document.getElementById('bikeBrand').value;
+        const model = document.getElementById('bikeModel').value.trim();
+        if (!name || !phone || !brand || !model) {
+          alert('Please fill in all required fields (Name, Phone, Bike Brand and Model).');
+          return;
+        }
+      }
+      if (step === 4) {
+        const date = document.getElementById('bookDate').value;
+        if (!date) { alert('Please select a preferred date.'); return; }
+        if (!selectedTimeSlot) { alert('Please select a time slot.'); return; }
+        // Populate summary
+        const brand = document.getElementById('bikeBrand').value;
+        const model = document.getElementById('bikeModel').value;
+        const dateObj = new Date(date + 'T00:00:00');
+        const dateStr = dateObj.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+        document.getElementById('sumService').textContent = selectedService;
+        document.getElementById('sumName').textContent = document.getElementById('bookName').value;
+        document.getElementById('sumPhone').textContent = document.getElementById('bookPhone').value;
+        document.getElementById('sumVehicle').textContent = `${brand} ${model}`;
+        document.getElementById('sumDateTime').textContent = `${dateStr} · ${selectedTimeSlot}`;
+        const pickupChecked = document.getElementById('pickupCheck').checked;
+        document.getElementById('sumPickupRow').style.display = pickupChecked ? 'flex' : 'none';
+      }
+
+      // Switch panels
+      document.querySelectorAll('.form-panel').forEach((p, i) => {
+        p.classList.toggle('active', i + 1 === step);
+      });
+
+      currentStep = step;
+      updateStepIndicators(step);
+
+      // Scroll to form top
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Final Submit
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const terms = document.getElementById('termsCheck').checked;
+      if (!terms) { alert('Please agree to the Terms & Conditions to confirm your booking.'); return; }
+
+      const submitBtn = document.getElementById('submitBookingBtn');
+      submitBtn.textContent = 'Confirming…';
+      submitBtn.disabled = true;
+
+      // Generate random confirmation ID
+      const refId = 'BME-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      document.getElementById('confirmId').textContent = refId;
+
+      setTimeout(() => {
+        document.getElementById('bookingForm').style.display = 'none';
+        document.querySelector('.booking-steps').style.display = 'none';
+        document.getElementById('bookingSuccessPanel').style.display = 'block';
+      }, 1400);
+    });
+  </script>
+</body>
+</html>
+
+
