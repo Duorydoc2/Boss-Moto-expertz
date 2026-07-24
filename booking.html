@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,7 @@
   <meta name="description" content="Book a motorcycle service appointment at Boss Moto Expertz. Choose your service type, preferred date and time – we'll confirm within 30 minutes." />
   <meta name="keywords" content="book motorcycle service, bike service appointment, Boss Moto Expertz booking, schedule service online" />
   <link rel="icon" href="assets/logo.png" type="image/png" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=sunset_teal" />
   <style>
     /* ── Booking Page Extras ── */
 
@@ -561,6 +561,7 @@
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="brands.html" class="nav-link">Brands</a></li>
         <li><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -576,9 +577,10 @@
     <a href="index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
     <a href="services.html" class="nav-link">Services</a>
+    <a href="brands.html" class="nav-link">Brands</a>
     <a href="gallery.html" class="nav-link">Gallery</a>
     <a href="contact.html" class="nav-link">Contact</a>
-    <a href="booking.html" class="btn btn-primary">🔧 Book Service</a>
+    <a href="booking.html" class="btn btn-primary" style="margin-top:1rem;">🔧 Book Service</a>
   </div>
 
   <!-- PAGE HERO -->
@@ -776,31 +778,47 @@
 
                 <div class="form-row">
                   <div class="form-group">
-                    <label for="bikeBrand">Bike Brand <span class="req">*</span></label>
+                    <label for="bikeBrand">Machine Brand <span class="req">*</span></label>
                     <select id="bikeBrand" name="brand" class="form-control" required>
                       <option value="" disabled selected>Select brand…</option>
-                      <option>Royal Enfield</option>
-                      <option>KTM</option>
-                      <option>Yamaha</option>
-                      <option>Honda</option>
-                      <option>TVS</option>
-                      <option>Bajaj</option>
-                      <option>Suzuki</option>
-                      <option>Hero</option>
-                      <option>Jawa / Yezdi</option>
-                      <option>BMW</option>
-                      <option>Other</option>
+                      <option value="TVS">TVS & XL Series (XL100, Apache, Ntorq, Jupiter)</option>
+                      <option value="Hero">Hero MotoCorp (Splendor, HF Deluxe, Xpulse)</option>
+                      <option value="Bajaj">Bajaj Auto (Pulsar, Dominar, Avenger, Platina)</option>
+                      <option value="Royal Enfield">Royal Enfield (Himalayan, Classic, GT 650)</option>
+                      <option value="Yamaha">Yamaha (RX100, MT-15, R15, Aerox)</option>
+                      <option value="Honda">Honda (CB350, Activa, Hornet, CBR)</option>
+                      <option value="KTM">KTM (Duke 390, RC 390, Adventure)</option>
+                      <option value="Suzuki">Suzuki (Gixxer, Access, Hayabusa)</option>
+                      <option value="Kawasaki">Kawasaki (Ninja 300/500, Z900)</option>
+                      <option value="BMW">BMW Motorrad (G310GS, S1000RR)</option>
+                      <option value="Triumph">Triumph (Speed 400, Scrambler 400X)</option>
+                      <option value="Jawa">Jawa / Yezdi (Jawa 42, Roadster, Perak)</option>
+                      <option value="Electric">Electric / EV (Ather, Ola, Chetak)</option>
+                      <option value="Other">Other Manufacturer</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="bikeModel">Model & Year <span class="req">*</span></label>
-                    <input type="text" id="bikeModel" name="model" class="form-control" placeholder="e.g. Himalayan 2022" required />
+                    <label for="bikeCc">Engine Displacement (CC) <span class="req">*</span></label>
+                    <select id="bikeCc" name="cc_range" class="form-control" required>
+                      <option value="" disabled selected>Select CC Range…</option>
+                      <option value="70-110cc">70cc – 110cc (Moped & Light Scooter)</option>
+                      <option value="110-150cc">110cc – 150cc (Commuter & Scooter)</option>
+                      <option value="150-250cc">150cc – 250cc (Sport & Executive)</option>
+                      <option value="250-500cc">250cc – 500cc (Classic & Mid-Capacity)</option>
+                      <option value="500-1300cc">500cc – 1300cc+ (Superbike & Heavy Twin)</option>
+                    </select>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="bikeKm">Odometer (km)</label>
-                  <input type="number" id="bikeKm" name="km" class="form-control" placeholder="e.g. 15000" min="0" />
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="bikeModel">Model Name & Year <span class="req">*</span></label>
+                    <input type="text" id="bikeModel" name="model" class="form-control" placeholder="e.g. TVS XL100 / Apache RTR 200" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="bikeKm">Odometer Reading (km)</label>
+                    <input type="number" id="bikeKm" name="km" class="form-control" placeholder="e.g. 12000" min="0" />
+                  </div>
                 </div>
 
                 <div class="form-group">
@@ -970,7 +988,7 @@
           <h4>Contact Info</h4>
           <div class="footer-contact-item">
             <span class="icon">📍</span>
-            <span>42, Amarar Jeeva Main Road, Nalvar Layout, Coimbatore</span>
+            <a href="https://maps.google.com/?q=11.0268,76.9634+(Boss+Moto+Expertz+-+Coimbatore)" target="_blank" rel="noopener noreferrer" style="color:inherit;">42, Amarar Jeeva Main Road, Nalvar Layout, Coimbatore ↗</a>
           </div>
           <div class="footer-contact-item">
             <span class="icon">📞</span>
@@ -1038,6 +1056,30 @@
         }
       });
     });
+
+    // Pre-fill form from URL query parameters (e.g. ?brand=tvs&model=Apache+RR+310)
+    const urlParams = new URLSearchParams(window.location.search);
+    const brandParam = urlParams.get('brand');
+    const modelParam = urlParams.get('model');
+
+    if (brandParam) {
+      const brandSelect = document.getElementById('bikeBrand');
+      if (brandSelect) {
+        for (let opt of brandSelect.options) {
+          if (opt.value.toLowerCase().includes(brandParam.toLowerCase()) || brandParam.toLowerCase().includes(opt.value.toLowerCase())) {
+            opt.selected = true;
+            break;
+          }
+        }
+      }
+    }
+
+    if (modelParam) {
+      const modelInput = document.getElementById('bikeModel');
+      if (modelInput) {
+        modelInput.value = modelParam;
+      }
+    }
 
     // Time slot selection
     document.querySelectorAll('.time-slot:not(.unavailable)').forEach(slot => {

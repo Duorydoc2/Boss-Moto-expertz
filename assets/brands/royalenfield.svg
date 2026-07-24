@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" width="100%" height="100%">
+  <circle cx="25" cy="25" r="20" fill="#DAA520" stroke="#E60012" stroke-width="2"/>
+  <circle cx="25" cy="25" r="16" fill="#E60012"/>
+  <text x="25" y="32" font-family="'Georgia', serif" font-size="20" font-weight="bold" fill="#DAA520" text-anchor="middle">R</text>
+  <text x="52" y="24" font-family="'Georgia', serif" font-size="18" font-weight="900" fill="#DAA520" letter-spacing="1">ROYAL</text>
+  <text x="52" y="44" font-family="'Georgia', serif" font-size="20" font-weight="900" fill="#E60012" letter-spacing="2">ENFIELD</text>
+</svg>

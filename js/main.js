@@ -318,10 +318,11 @@
   if (!categoryBtns.length || !packageBtns.length) return;
 
   const categoryData = {
-    commuter: { name: 'Commuter Motorcycle (100–150cc)', priceMult: 1.0 },
-    performance: { name: 'Performance Bike (150–400cc)', priceMult: 1.4 },
-    classic: { name: 'Classic / Royal Enfield', priceMult: 1.6 },
-    superbike: { name: 'Superbike / Multi-Cylinder (500cc+)', priceMult: 2.5 }
+    moped: { name: 'Moped & Light Scooter (70–110cc)', priceMult: 0.75, generalTime: 'Up to 3 Hours' },
+    commuter: { name: 'Commuter Motorcycle (110–150cc)', priceMult: 1.0, generalTime: 'Up to 3 Hours' },
+    performance: { name: 'Sport & Executive (150–250cc)', priceMult: 1.35, generalTime: 'Up to 3 Hours' },
+    classic: { name: 'Classic & Mid-Capacity (250–500cc)', priceMult: 1.65, generalTime: '3 – 4 Hours' },
+    superbike: { name: 'Superbike & Multi-Cylinder (500–1300cc+)', priceMult: 2.5, generalTime: '4 – 6 Hours' }
   };
 
   const packageData = {
@@ -329,7 +330,7 @@
       name: 'Periodic General Service',
       basePrice: 1499,
       maxPrice: 2499,
-      baseTime: '3 – 5 Hours',
+      baseTime: 'Up to 3 Hours',
       items: [
         '✓ Full Synthetic Engine Oil & Filter Replacement',
         '✓ 40-Point Mechanical & Electrical Safety Audit',
@@ -394,7 +395,7 @@
     if (estBikeTitle) estBikeTitle.textContent = cat.name;
     if (estPackageTitle) estPackageTitle.textContent = pkg.name;
     if (estPriceRange) estPriceRange.textContent = `₹${minP.toLocaleString('en-IN')} – ₹${maxP.toLocaleString('en-IN')}`;
-    if (estTime) estTime.textContent = pkg.baseTime;
+    if (estTime) estTime.textContent = activePackage === 'general' ? cat.generalTime : pkg.baseTime;
 
     if (estChecklist) {
       estChecklist.innerHTML = pkg.items.map(item => `<li>${item}</li>`).join('');
@@ -421,4 +422,185 @@
 
   updateEstimate();
 })();
+
+/* ─── Advanced Interactive Service Search Engine ────────── */
+(function () {
+  const searchInput = document.getElementById('serviceSearchInput');
+  if (!searchInput) return;
+
+  const searchBox = searchInput.closest('.service-search-box');
+  const clearBtn = document.getElementById('searchClearBtn');
+  const dropdown = document.getElementById('serviceSearchDropdown');
+  const statusContainer = document.getElementById('searchResultsStatus');
+  const noResultsContainer = document.getElementById('searchNoResults');
+  const pillBtns = document.querySelectorAll('.search-pill-btn');
+  
+  const cards = Array.from(document.querySelectorAll('.service-detail-card'));
+  const sections = document.querySelectorAll('.service-cat-section');
+
+  // Build searchable index of all service cards
+  const servicesIndex = cards.map((card, idx) => {
+    card.id = card.id || `service-card-${idx}`;
+    const title = card.querySelector('h4') ? card.querySelector('h4').textContent.trim() : '';
+    const desc = card.querySelector('p') ? card.querySelector('p').textContent.trim() : '';
+    const icon = card.querySelector('.icon') ? card.querySelector('.icon').textContent.trim() : '🔧';
+    const price = card.querySelector('.price') ? card.querySelector('.price').textContent.trim() : '';
+    const section = card.closest('.service-cat-section');
+    const catName = section && section.querySelector('h2') ? section.querySelector('h2').textContent.replace(/Category \d+\s*[-:]?\s*/, '').trim() : 'Service';
+    const text = (title + ' ' + desc + ' ' + catName).toLowerCase();
+    
+    return { element: card, section, title, desc, icon, price, catName, text };
+  });
+
+  function performSearch(queryText, showDropdown = true) {
+    const query = queryText.toLowerCase().trim();
+
+    // Toggle clear button
+    if (clearBtn) {
+      clearBtn.style.display = query.length > 0 ? 'flex' : 'none';
+    }
+
+    if (query === '') {
+      // Reset everything
+      cards.forEach(card => card.style.display = 'flex');
+      sections.forEach(sec => sec.style.display = 'block');
+      if (dropdown) dropdown.style.display = 'none';
+      if (statusContainer) statusContainer.style.display = 'none';
+      if (noResultsContainer) noResultsContainer.style.display = 'none';
+      return;
+    }
+
+    let matchCount = 0;
+    const matchingServices = [];
+
+    servicesIndex.forEach(item => {
+      if (item.text.includes(query)) {
+        item.element.style.display = 'flex';
+        matchCount++;
+        matchingServices.push(item);
+      } else {
+        item.element.style.display = 'none';
+      }
+    });
+
+    // Toggle category sections
+    sections.forEach(sec => {
+      const visible = sec.querySelectorAll('.service-detail-card[style*="display: flex"], .service-detail-card:not([style*="display: none"])');
+      sec.style.display = visible.length > 0 ? 'block' : 'none';
+    });
+
+    // Handle Status Bar & Empty State
+    if (statusContainer) {
+      if (matchCount > 0) {
+        statusContainer.style.display = 'flex';
+        statusContainer.innerHTML = `
+          <span>Showing ${matchCount} service${matchCount > 1 ? 's' : ''} matching "${queryText}"</span>
+          <button type="button" class="search-pill-btn" onclick="document.getElementById('serviceSearchInput').value=''; document.getElementById('serviceSearchInput').dispatchEvent(new Event('input'));">Clear Filter ✕</button>
+        `;
+      } else {
+        statusContainer.style.display = 'none';
+      }
+    }
+
+    if (noResultsContainer) {
+      if (matchCount === 0) {
+        noResultsContainer.style.display = 'block';
+        noResultsContainer.innerHTML = `
+          <h3>🔍 No services matching "${queryText}"</h3>
+          <p>Try searching for a different keyword or explore our popular categories below.</p>
+          <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
+            <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('serviceSearchInput').value=''; document.getElementById('serviceSearchInput').dispatchEvent(new Event('input'));">Reset All Filters</button>
+            <a href="booking.html" class="btn btn-outline btn-sm">Ask Custom Quote</a>
+          </div>
+        `;
+      } else {
+        noResultsContainer.style.display = 'none';
+      }
+    }
+
+    // Render Dropdown Suggestions Popup
+    if (dropdown && showDropdown) {
+      if (matchingServices.length > 0 && query.length > 0) {
+        dropdown.style.display = 'block';
+        dropdown.innerHTML = matchingServices.slice(0, 5).map(item => `
+          <div class="dropdown-item" data-card-id="${item.element.id}">
+            <div class="dropdown-item-left">
+              <span class="dropdown-item-icon">${item.icon}</span>
+              <div>
+                <div class="dropdown-item-title">${item.title}</div>
+                <div class="dropdown-item-cat">${item.catName}</div>
+              </div>
+            </div>
+            <span class="dropdown-item-price">${item.price}</span>
+          </div>
+        `).join('');
+
+        // Dropdown item click handler
+        dropdown.querySelectorAll('.dropdown-item').forEach(itemEl => {
+          itemEl.addEventListener('click', () => {
+            const targetId = itemEl.dataset.cardId;
+            const targetCard = document.getElementById(targetId);
+            if (targetCard) {
+              dropdown.style.display = 'none';
+              targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              targetCard.classList.add('highlight-card');
+              setTimeout(() => targetCard.classList.remove('highlight-card'), 2500);
+            }
+          });
+        });
+      } else {
+        dropdown.style.display = 'none';
+      }
+    }
+  }
+
+  // Input listener
+  searchInput.addEventListener('input', (e) => {
+    performSearch(e.target.value, true);
+  });
+
+  // Enter key press auto-scrolls to first matching card
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const firstVisible = document.querySelector('.service-detail-card[style*="display: flex"], .service-detail-card:not([style*="display: none"])');
+      if (dropdown) dropdown.style.display = 'none';
+      if (firstVisible) {
+        firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstVisible.classList.add('highlight-card');
+        setTimeout(() => firstVisible.classList.remove('highlight-card'), 2500);
+      }
+    } else if (e.key === 'Escape') {
+      if (dropdown) dropdown.style.display = 'none';
+    }
+  });
+
+  // Clear button click handler
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      performSearch('', false);
+      searchInput.focus();
+    });
+  }
+
+  // Popular search pill buttons click handler
+  pillBtns.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const term = pill.dataset.search || pill.textContent.trim();
+      searchInput.value = term;
+      performSearch(term, true);
+      searchInput.focus();
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (dropdown && !searchBox.contains(e.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+})();
+
+
 

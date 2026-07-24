@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Services | Boss Moto Expertz – Maintenance, Repair, Performance & Mods</title>
-  <meta name="description" content="Explore all Boss Moto Expertz services – from routine maintenance and engine repair to ECU tuning, custom modifications, bike painting and detailing." />
+  <meta name="description" content="Explore all Boss Moto Expertz services – from routine maintenance and engine repair to ECU tuning, custom modifications, bike painting and ceramic detailing." />
   <link rel="icon" href="assets/logo.png" type="image/png" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=sunset_teal_v3" />
 </head>
 <body>
 
@@ -23,7 +23,8 @@
       <ul class="nav-links" role="list">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="services.html" class="nav-link active">Services</a></li>
+        <li><a href="brands.html" class="nav-link">Brands</a></li>
         <li><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -34,85 +35,284 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
-    <a href="services.html" class="nav-link">Services</a>
+    <a href="services.html" class="nav-link active">Services</a>
+    <a href="brands.html" class="nav-link">Brands</a>
     <a href="gallery.html" class="nav-link">Gallery</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <a href="booking.html" class="btn btn-primary">🔧 Book Service</a>
   </div>
 
-  <!-- PAGE HERO -->
+  <!-- PAGE HERO (2-Column Grid Layout) -->
   <section class="page-hero" aria-labelledby="servicesPageTitle">
     <div class="page-hero-bg"></div>
-    <div class="container" style="position:relative;z-index:1;">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>Services</span>
-      </nav>
-      <div class="section-label">What We Offer</div>
-      <h1 class="section-title" id="servicesPageTitle" style="font-size:clamp(2.2rem,5vw,3.5rem);">Our Services</h1>
-      <p class="section-subtitle">From everyday commuters to exotic performance machines – we've got the expertise.</p>
-    </div>
-  </section>
-
-  <!-- SERVICE OVERVIEW TABS -->
-  <section class="section-py" style="background:var(--navy);" aria-label="Service Navigation">
     <div class="container">
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-        <a href="#maintenance" class="btn btn-outline btn-sm">🔧 Maintenance</a>
-        <a href="#repairs" class="btn btn-outline btn-sm">🔩 Repairs</a>
-        <a href="#performance" class="btn btn-outline btn-sm">🚀 Performance</a>
-        <a href="#modifications" class="btn btn-outline btn-sm">🎨 Modifications</a>
+      <div class="page-hero-grid">
+        <!-- Left Content Column -->
+        <div class="hero-left-content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>Services Catalog</span>
+          </nav>
+          <div class="section-label">Master Workshop Services</div>
+          <h1 class="section-title" id="servicesPageTitle" style="font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1.1;margin-bottom:1rem;">
+            Precision Services & <span class="text-accent">Performance Mods</span>
+          </h1>
+          <p class="section-subtitle" style="max-width:580px;font-size:1.05rem;line-height:1.75;margin-bottom:1.5rem;">
+            From routine commuter maintenance & Royal Enfield custom bobbers to track-tuned superbike diagnostics, ECU remapping & full restoration – master care for every motorcycle.
+          </p>
+
+          <!-- Live Interactive Search Box -->
+          <div class="service-search-box">
+            <span class="service-search-icon">🔍</span>
+            <input type="text" id="serviceSearchInput" class="service-search-input" placeholder="Search 28+ services (e.g. ECU Remap, Oil Change, Paint, Brakes...)" aria-label="Search Services" autocomplete="off" />
+            <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Clear Search" style="display:none;">✕</button>
+            <div id="serviceSearchDropdown" class="service-search-dropdown" style="display:none;"></div>
+          </div>
+
+          <!-- Quick Search Pill Buttons -->
+          <div class="quick-search-tags">
+            <span class="tag-label">Popular:</span>
+            <button type="button" class="search-pill-btn" data-search="ECU Remap">ECU Remap</button>
+            <button type="button" class="search-pill-btn" data-search="Oil Change">Oil Change</button>
+            <button type="button" class="search-pill-btn" data-search="Ceramic">Ceramic Coating</button>
+            <button type="button" class="search-pill-btn" data-search="Brake">Brake Service</button>
+            <button type="button" class="search-pill-btn" data-search="Chain">Chain Lube</button>
+            <button type="button" class="search-pill-btn" data-search="Cafe Racer">Cafe Racer</button>
+          </div>
+
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem;">
+            <a href="booking.html" class="btn btn-primary">📅 Book Appointment</a>
+            <a href="tel:+916379929963" class="btn btn-outline">📞 Call: +91 63799 29963</a>
+          </div>
+        </div>
+
+        <!-- Right Workshop Telemetry Feature Cards Stack -->
+        <div class="hero-telemetry-panel">
+          <div class="telemetry-card">
+            <div class="telemetry-icon">🖥️</div>
+            <div class="telemetry-info">
+              <h4>OEM Computer Diagnostics</h4>
+              <p>Multi-brand OBD scanner & ECU error clearing for all superbike brands.</p>
+            </div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-icon">⏱️</div>
+            <div class="telemetry-info">
+              <h4>Express Turnaround</h4>
+              <p>Same-day delivery available for regular routine maintenance packages.</p>
+            </div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-icon">🛡️</div>
+            <div class="telemetry-info">
+              <h4>90-Day Service Guarantee</h4>
+              <p>100% genuine factory spare parts & complete workmanship warranty.</p>
+            </div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-icon">📊</div>
+            <div class="telemetry-info">
+              <h4>Dyno Performance Tuning</h4>
+              <p>Custom fuel-map calibration, quickshifter setup & speed limiter removal.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ MAINTENANCE ══ -->
+  <!-- CATEGORY NAVIGATION HUB -->
+  <section class="section-py" style="background:var(--black-soft);border-bottom:1px solid var(--glass-border);" aria-label="Service Category Hub">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;">
+        <a href="#maintenance" style="text-decoration:none;">
+          <div class="glass-card" style="padding:1.25rem;text-align:center;border-radius:10px;height:100%;">
+            <div style="font-size:1.8rem;margin-bottom:0.4rem;">🔧</div>
+            <div style="font-family:var(--font-heading);font-weight:700;color:var(--white);font-size:1rem;">Maintenance</div>
+            <div style="font-size:0.75rem;color:var(--silver-dim);margin-top:0.25rem;">6 Essential Packages</div>
+          </div>
+        </a>
+        <a href="#repairs" style="text-decoration:none;">
+          <div class="glass-card" style="padding:1.25rem;text-align:center;border-radius:10px;height:100%;">
+            <div style="font-size:1.8rem;margin-bottom:0.4rem;">🔩</div>
+            <div style="font-family:var(--font-heading);font-weight:700;color:var(--white);font-size:1rem;">Repairs & Overhauls</div>
+            <div style="font-size:0.75rem;color:var(--silver-dim);margin-top:0.25rem;">8 Diagnostic Solutions</div>
+          </div>
+        </a>
+        <a href="#performance" style="text-decoration:none;">
+          <div class="glass-card" style="padding:1.25rem;text-align:center;border-radius:10px;height:100%;">
+            <div style="font-size:1.8rem;margin-bottom:0.4rem;">🚀</div>
+            <div style="font-family:var(--font-heading);font-weight:700;color:var(--white);font-size:1rem;">Performance Upgrades</div>
+            <div style="font-size:0.75rem;color:var(--silver-dim);margin-top:0.25rem;">6 Power & Dyno Tunes</div>
+          </div>
+        </a>
+        <a href="#modifications" style="text-decoration:none;">
+          <div class="glass-card" style="padding:1.25rem;text-align:center;border-radius:10px;height:100%;">
+            <div style="font-size:1.8rem;margin-bottom:0.4rem;">🎨</div>
+            <div style="font-family:var(--font-heading);font-weight:700;color:var(--white);font-size:1rem;">Custom Builds & Paint</div>
+            <div style="font-size:0.75rem;color:var(--silver-dim);margin-top:0.25rem;">8 Styling Options</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Active Search Status Bar & No Results Container -->
+      <div id="searchResultsStatus" class="search-results-status" style="display:none;"></div>
+      <div id="searchNoResults" class="search-no-results" style="display:none;"></div>
+    </div>
+  </section>
+
+  <!-- ══ CATEGORY 01: MAINTENANCE & CARE ══ -->
   <section class="service-cat-section section-py" id="maintenance" aria-labelledby="maintTitle">
     <div class="container">
       <div class="service-cat-header reveal">
         <div class="service-cat-icon">🔧</div>
         <div>
           <div class="section-label" style="margin-bottom:0.25rem;">Category 01</div>
-          <h2 class="section-title" id="maintTitle" style="margin-bottom:0;">Maintenance & Care</h2>
+          <h2 class="section-title" id="maintTitle" style="margin-bottom:0;">Maintenance & Routine Care</h2>
         </div>
       </div>
-      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">Keep your ride in peak condition with our comprehensive routine service packages.</p>
+      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">Keep your ride running smooth, efficient, and reliable with factory-recommended routine care.</p>
 
       <div class="service-detail-grid">
+        <!-- Card 1 -->
         <div class="service-detail-card reveal reveal-delay-1">
-          <div class="icon">🛢️</div>
-          <h4>Oil & Filter Change</h4>
-          <p>Full synthetic, semi-synthetic or mineral oil change with genuine OEM filters for optimal engine health.</p>
-          <span class="price">Starting ₹ 399</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 45 Mins</span>
+              <span class="badge-tag-pop">🔥 POPULAR</span>
+            </div>
+            <div class="icon">🛢️</div>
+            <h4>Full Synthetic Oil Service</h4>
+            <p>Full synthetic oil drain & replacement with genuine OEM oil filter, drain washer change & engine inspection.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Motul 7100 / Liqui Moly Synthetic</li>
+                <li><span class="check">✓</span> OEM Filter & Drain Plug Washer</li>
+                <li><span class="check">✓</span> Free 15-point General Checkup</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 399</span>
+            <a href="booking.html?service=oil-change" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 2 -->
         <div class="service-detail-card reveal reveal-delay-2">
-          <div class="icon">🚿</div>
-          <h4>Professional Wash</h4>
-          <p>Pressure wash, engine degreasing, chain clean and polish. Your bike comes out looking showroom fresh.</p>
-          <span class="price">Starting ₹ 299</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 60 Mins</span>
+              <span class="badge-tag-prem">💎 PREMIUM</span>
+            </div>
+            <div class="icon">🚿</div>
+            <h4>Deep Foam Wash & Polish</h4>
+            <p>High-pressure snow foam wash, engine bay degreasing, chain lube and UV-protective body polish.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> pH-Neutral Snow Foam Soak</li>
+                <li><span class="check">✓</span> Degreasing & Brake Dust Clean</li>
+                <li><span class="check">✓</span> Polymer Paint Wax Coat</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 299</span>
+            <a href="booking.html?service=wash" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 3 -->
         <div class="service-detail-card reveal reveal-delay-3">
-          <div class="icon">⛓️</div>
-          <h4>Chain Service</h4>
-          <p>Chain cleaning, lubrication, tension adjustment and sprocket inspection for smooth power delivery.</p>
-          <span class="price">Starting ₹ 199</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 30 Mins</span>
+              <span class="badge-tag-pop">ESSENTIAL</span>
+            </div>
+            <div class="icon">⛓️</div>
+            <h4>Drive Chain Clean & Lube</h4>
+            <p>Chain degreasing, ultrasonic cleaning, slack tension adjustment and Motul Off-Road/Road lube application.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> O-Ring Safe Solvent Clean</li>
+                <li><span class="check">✓</span> Laser Wheel Alignment Check</li>
+                <li><span class="check">✓</span> Sprocket Tooth Inspection</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 199</span>
+            <a href="booking.html?service=chain" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 4 -->
         <div class="service-detail-card reveal reveal-delay-4">
-          <div class="icon">🔋</div>
-          <h4>Battery Check & Replace</h4>
-          <p>Battery health testing, terminal cleaning, charging system check and replacement if required.</p>
-          <span class="price">Starting ₹ 149</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 20 Mins</span>
+            </div>
+            <div class="icon">🔋</div>
+            <h4>Battery Health & Charging</h4>
+            <p>Load testing, terminal anti-corrosion treatment, charging voltage check and replacement if needed.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Digital CCA & Voltage Test</li>
+                <li><span class="check">✓</span> Stator Coil Output Check</li>
+                <li><span class="check">✓</span> Amaron / Exide Battery In-Stock</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 149</span>
+            <a href="booking.html?service=battery" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 5 -->
         <div class="service-detail-card reveal reveal-delay-5">
-          <div class="icon">💨</div>
-          <h4>Air Filter Service</h4>
-          <p>Air filter cleaning or replacement for better fuel efficiency and engine breathing.</p>
-          <span class="price">Starting ₹ 99</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 25 Mins</span>
+            </div>
+            <div class="icon">💨</div>
+            <h4>Air Filter Clean & Replace</h4>
+            <p>Air box inspection, high-flow filter cleaning or replacement for optimum engine airflow & fuel economy.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Intake Duct De-dusting</li>
+                <li><span class="check">✓</span> Paper / Foam Element Refresh</li>
+                <li><span class="check">✓</span> K&N / DNA Filter Recharge option</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 99</span>
+            <a href="booking.html?service=air-filter" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 6 -->
         <div class="service-detail-card reveal reveal-delay-6">
-          <div class="icon">✨</div>
-          <h4>Ceramic Detailing</h4>
-          <p>Multi-stage paint correction, ceramic coating and nano sealant for long-lasting shine and protection.</p>
-          <span class="price">Starting ₹ 1,999</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1 Day</span>
+              <span class="badge-tag-prem">💎 NANO COAT</span>
+            </div>
+            <div class="icon">✨</div>
+            <h4>9H Ceramic Detailing Lab</h4>
+            <p>3-stage paint correction, swirl mark elimination, 9H nano-ceramic coating with 2-year hydrophobic shield.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Clay Bar & Compound Polish</li>
+                <li><span class="check">✓</span> 9H Hardness Glass Shield</li>
+                <li><span class="check">✓</span> Helmet & Visor Hydrophobic Coat</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 1,999</span>
+            <a href="booking.html?service=ceramic" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
       </div>
     </div>
@@ -120,66 +320,203 @@
 
   <div class="section-divider"></div>
 
-  <!-- ══ REPAIRS ══ -->
-  <section class="service-cat-section section-py" id="repairs" style="background:var(--navy);" aria-labelledby="repairTitle">
+  <!-- ══ CATEGORY 02: REPAIR & OVERHAUL ══ -->
+  <section class="service-cat-section section-py" id="repairs" style="background:var(--black-soft);" aria-labelledby="repairTitle">
     <div class="container">
       <div class="service-cat-header reveal">
         <div class="service-cat-icon">🔩</div>
         <div>
           <div class="section-label" style="margin-bottom:0.25rem;">Category 02</div>
-          <h2 class="section-title" id="repairTitle" style="margin-bottom:0;">Repair & Restoration</h2>
+          <h2 class="section-title" id="repairTitle" style="margin-bottom:0;">Repair & Mechanical Overhaul</h2>
         </div>
       </div>
-      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">Precision diagnosis and expert repair for every mechanical and electrical issue.</p>
+      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">Expert mechanical, hydraulic, and electrical diagnostics to solve complex engine and chassis issues.</p>
 
       <div class="service-detail-grid">
+        <!-- Card 1 -->
         <div class="service-detail-card reveal reveal-delay-1">
-          <div class="icon">🔩</div>
-          <h4>Engine Overhaul</h4>
-          <p>Complete engine rebuild including bore work, piston replacement, valve grinding and gasket replacement.</p>
-          <span class="price">Get Quote</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 2-3 Days</span>
+              <span class="badge-tag-pop">EXPERT WORK</span>
+            </div>
+            <div class="icon">🔩</div>
+            <h4>Full Engine Overhaul & Rebuild</h4>
+            <p>Complete teardown, cylinder boring, forged piston fitting, valve shim clearance tuning and gasket overhaul.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Micrometer Precision Clearance</li>
+                <li><span class="check">✓</span> Crankshaft Truing & Bearings</li>
+                <li><span class="check">✓</span> Compression & Pressure Tested</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Get Quote</span>
+            <a href="booking.html?service=engine-overhaul" class="btn btn-outline btn-sm">Get Quote</a>
+          </div>
         </div>
+
+        <!-- Card 2 -->
         <div class="service-detail-card reveal reveal-delay-2">
-          <div class="icon">🤝</div>
-          <h4>Clutch Repair</h4>
-          <p>Clutch plate set replacement, cable adjustment, and wet/dry clutch rebuild for all brands.</p>
-          <span class="price">Starting ₹ 799</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 3 Hours</span>
+            </div>
+            <div class="icon">🤝</div>
+            <h4>Clutch Assembly Replacement</h4>
+            <p>Clutch plate set fitting, friction disc replacement, heavy-duty springs and cable/hydraulic bleeding.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> FCC / EBC Heavy Duty Plates</li>
+                <li><span class="check">✓</span> Clutch Basket Inspection</li>
+                <li><span class="check">✓</span> Smooth Engagement Guarantee</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 799</span>
+            <a href="booking.html?service=clutch" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 3 -->
         <div class="service-detail-card reveal reveal-delay-3">
-          <div class="icon">🛑</div>
-          <h4>Brake System Service</h4>
-          <p>Pad replacement, disc resurfacing, caliper rebuild and hydraulic brake bleeding.</p>
-          <span class="price">Starting ₹ 499</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1.5 Hours</span>
+              <span class="badge-tag-pop">SAFETY FIRST</span>
+            </div>
+            <div class="icon">🛑</div>
+            <h4>Brake Hydraulic & Disc Service</h4>
+            <p>Brake pad replacement, caliper piston rebuild, disc rotor resurfacing and DOT 4/5.1 fluid flush.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Brembo / EBC Sintered Pads</li>
+                <li><span class="check">✓</span> Vacuum Hydraulic Bleeding</li>
+                <li><span class="check">✓</span> Zero Sponginess Brake Feel</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 499</span>
+            <a href="booking.html?service=brakes" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 4 -->
         <div class="service-detail-card reveal reveal-delay-4">
-          <div class="icon">🌀</div>
-          <h4>Suspension Overhaul</h4>
-          <p>Fork seal replacement, mono shock rebuild, suspension fluid change and geometry adjustment.</p>
-          <span class="price">Starting ₹ 1,299</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 4 Hours</span>
+            </div>
+            <div class="icon">🌀</div>
+            <h4>Front Fork & Rear Shock Overhaul</h4>
+            <p>Fork seal replacement, Motul fork oil change, stanchion straightening and rear monoshock setup.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Nok / Ariete Oil & Dust Seals</li>
+                <li><span class="check">✓</span> Custom Viscosity Fluid Tuning</li>
+                <li><span class="check">✓</span> Preload & Rebound Sag Adjustment</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 1,299</span>
+            <a href="booking.html?service=suspension" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 5 -->
         <div class="service-detail-card reveal reveal-delay-5">
-          <div class="icon">⚡</div>
-          <h4>Electrical Repair</h4>
-          <p>Wiring diagnostics, fuse replacement, ignition module repair and lighting system overhaul.</p>
-          <span class="price">Starting ₹ 499</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 2 Hours</span>
+            </div>
+            <div class="icon">⚡</div>
+            <h4>Electrical Diagnostic & Wiring</h4>
+            <p>Short circuit tracing, stator coil rewinding, relay replacement and complete harness overhaul.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Digital Multimeter Continuity</li>
+                <li><span class="check">✓</span> Weatherproof Heat-Shrink Joints</li>
+                <li><span class="check">✓</span> RR Unit & Fuse Box Repair</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 499</span>
+            <a href="booking.html?service=electrical" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 6 -->
         <div class="service-detail-card reveal reveal-delay-6">
-          <div class="icon">🔌</div>
-          <h4>Fuel System Service</h4>
-          <p>Carburettor cleaning/rebuild, fuel injector cleaning and fuel pump replacement.</p>
-          <span class="price">Starting ₹ 699</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 2.5 Hours</span>
+            </div>
+            <div class="icon">🔌</div>
+            <h4>Carb Tuning & Fuel Injector Clean</h4>
+            <p>Ultrasonic fuel injector cleaning, flow testing, carburetor jetting and throttle body sync.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Ultrasonic Bath Cleaning</li>
+                <li><span class="check">✓</span> Vacuum Gauge Synchronisation</li>
+                <li><span class="check">✓</span> Idle & Air-Fuel Ratio Tuning</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 699</span>
+            <a href="booking.html?service=fuel-system" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 7 -->
         <div class="service-detail-card reveal reveal-delay-1">
-          <div class="icon">🏍️</div>
-          <h4>Tyre Change</h4>
-          <p>Tyre mounting, balancing, valve replacement and pressure check for all bike and scooter sizes.</p>
-          <span class="price">Starting ₹ 249</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 45 Mins</span>
+            </div>
+            <div class="icon">🏍️</div>
+            <h4>Tyre Replacement & Wheel Balance</h4>
+            <p>Tyre mounting, tubeless conversion, dynamic wheel balancing and 99.9% nitrogen filling.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Pirelli / Metzeler / Michelin</li>
+                <li><span class="check">✓</span> Rim Truing & Spoke Adjustment</li>
+                <li><span class="check">✓</span> High-Pressure Valve Stem Replace</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 249</span>
+            <a href="booking.html?service=tyres" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 8 -->
         <div class="service-detail-card reveal reveal-delay-2">
-          <div class="icon">🌡️</div>
-          <h4>Cooling System</h4>
-          <p>Coolant flush and refill, radiator cleaning, thermostat replacement and water pump service.</p>
-          <span class="price">Starting ₹ 599</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1.5 Hours</span>
+            </div>
+            <div class="icon">🌡️</div>
+            <h4>Radiator & Cooling Flush</h4>
+            <p>Coolant vacuum flush, radiator fins de-scaling, organic coolant refill and thermostat testing.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Motul Inugel / Engine Ice</li>
+                <li><span class="check">✓</span> Radiator Fan Switch Check</li>
+                <li><span class="check">✓</span> High Temp Pressure Test</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 599</span>
+            <a href="booking.html?service=cooling" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
       </div>
     </div>
@@ -187,54 +524,157 @@
 
   <div class="section-divider"></div>
 
-  <!-- ══ PERFORMANCE ══ -->
+  <!-- ══ CATEGORY 03: PERFORMANCE UPGRADES ══ -->
   <section class="service-cat-section section-py" id="performance" aria-labelledby="perfTitle">
     <div class="container">
       <div class="service-cat-header reveal">
         <div class="service-cat-icon">🚀</div>
         <div>
           <div class="section-label" style="margin-bottom:0.25rem;">Category 03</div>
-          <h2 class="section-title" id="perfTitle" style="margin-bottom:0;">Performance Upgrades</h2>
+          <h2 class="section-title" id="perfTitle" style="margin-bottom:0;">Performance & Dyno Tuning</h2>
         </div>
       </div>
-      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">Unlock your motorcycle's true potential with our performance tuning and upgrade services.</p>
+      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">Maximize rear-wheel horsepower, eliminate throttle lag, and tune your machine for track or street dominance.</p>
 
       <div class="service-detail-grid">
+        <!-- Card 1 -->
         <div class="service-detail-card reveal reveal-delay-1">
-          <div class="icon">💻</div>
-          <h4>ECU Remapping</h4>
-          <p>Professional ECU tuning for better throttle response, power delivery and fuel efficiency gains.</p>
-          <span class="price">Starting ₹ 3,999</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1 Day</span>
+              <span class="badge-tag-track">⚡ TRACK SPEC</span>
+            </div>
+            <div class="icon">💻</div>
+            <h4>Stage 1 & 2 Custom ECU Remap</h4>
+            <p>Fuel map re-flashing, ignition timing advance, quickshifter activation, speed limiter removal and pops/bangles tune.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Custom Fuel/Ignition Maps</li>
+                <li><span class="check">✓</span> RPM Rev Limiter Raise</li>
+                <li><span class="check">✓</span> Dyno Graph Power Printout</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 3,999</span>
+            <a href="booking.html?service=ecu-remap" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 2 -->
         <div class="service-detail-card reveal reveal-delay-2">
-          <div class="icon">🔊</div>
-          <h4>Exhaust Upgrade</h4>
-          <p>Slip-on and full exhaust system fitment – from subtle sound upgrades to track-spec full systems.</p>
-          <span class="price">Starting ₹ 2,499</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 2 Hours</span>
+            </div>
+            <div class="icon">🔊</div>
+            <h4>Full System Exhaust & Headers</h4>
+            <p>Slip-on silencer fitment, stainless/titanium header pipe installation, DB killer tuning and O2 sensor bypass.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Akrapovič / Arrow / Red Rooster</li>
+                <li><span class="check">✓</span> Custom Header Pipe Bracket Fabrication</li>
+                <li><span class="check">✓</span> High-Temp Copper Exhaust Gaskets</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 2,499</span>
+            <a href="booking.html?service=exhaust" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 3 -->
         <div class="service-detail-card reveal reveal-delay-3">
-          <div class="icon">🌀</div>
-          <h4>Suspension Tuning</h4>
-          <p>Race-spec fork and shock setup, spring rates and damping tuned for your riding style.</p>
-          <span class="price">Starting ₹ 1,999</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 3 Hours</span>
+              <span class="badge-tag-pop">POPULAR</span>
+            </div>
+            <div class="icon">🌀</div>
+            <h4>Race Suspension Setup & Tuning</h4>
+            <p>Fork oil weight adjustment, progressive spring upgrade, rider sag measurement and compression damping setup.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> YSS / Öhlins / WP Springs</li>
+                <li><span class="check">✓</span> Tailored to Rider Bodyweight</li>
+                <li><span class="check">✓</span> High-Speed Corner Stability</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 1,999</span>
+            <a href="booking.html?service=suspension-tune" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 4 -->
         <div class="service-detail-card reveal reveal-delay-4">
-          <div class="icon">🏁</div>
-          <h4>Big Bore Kit</h4>
-          <p>Displacement upgrades with forged pistons, performance cams and matching ECU tune.</p>
-          <span class="price">Get Quote</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 3-4 Days</span>
+            </div>
+            <div class="icon">🏁</div>
+            <h4>Big Bore & High Comp Piston Kit</h4>
+            <p>Engine displacement expansion, high-compression forged piston, performance camshaft and valve spring kit.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Way2Speed / FuelX Power Mods</li>
+                <li><span class="check">✓</span> High-Flow Cylinder Head Porting</li>
+                <li><span class="check">✓</span> Up to 35% Horsepower Increase</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Get Quote</span>
+            <a href="booking.html?service=big-bore" class="btn btn-outline btn-sm">Get Quote</a>
+          </div>
         </div>
+
+        <!-- Card 5 -->
         <div class="service-detail-card reveal reveal-delay-5">
-          <div class="icon">🔥</div>
-          <h4>Air Intake Upgrade</h4>
-          <p>High-flow air filter, velocity stack and intake manifold upgrades for better breathing.</p>
-          <span class="price">Starting ₹ 1,499</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1 Hour</span>
+            </div>
+            <div class="icon">🔥</div>
+            <h4>High-Flow Air Intake System</h4>
+            <p>DNA / K&N performance filter fitment, custom velocity stacks and oversized airbox snorkel installation.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> 40% Increase Air Intake Volume</li>
+                <li><span class="check">✓</span> Washable & Reusable Filter Element</li>
+                <li><span class="check">✓</span> Crisp Throttle Response</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 1,499</span>
+            <a href="booking.html?service=intake" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 6 -->
         <div class="service-detail-card reveal reveal-delay-6">
-          <div class="icon">⚙️</div>
-          <h4>Sprocket & Chain Kit</h4>
-          <p>Gearing changes for acceleration or top speed focus with premium chain and sprocket sets.</p>
-          <span class="price">Starting ₹ 899</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1.5 Hours</span>
+            </div>
+            <div class="icon">⚙️</div>
+            <h4>Quick Acceleration Sprocket Kit</h4>
+            <p>Custom teeth gearing ratio changes (-1 front / +2 rear), RK/DID X-Ring gold chain and lightweight sprockets.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> DID / RK Gold X-Ring Chain</li>
+                <li><span class="check">✓</span> Hardened Steel / Alloy Sprockets</li>
+                <li><span class="check">✓</span> Aggressive Low-End Torque</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 899</span>
+            <a href="booking.html?service=sprocket" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
       </div>
     </div>
@@ -242,66 +682,240 @@
 
   <div class="section-divider"></div>
 
-  <!-- ══ MODIFICATIONS ══ -->
-  <section class="service-cat-section section-py" id="modifications" style="background:var(--navy);" aria-labelledby="modTitle">
+  <!-- ══ CATEGORY 04: CUSTOM MODIFICATIONS ══ -->
+  <section class="service-cat-section section-py" id="modifications" style="background:var(--black-soft);" aria-labelledby="modTitle">
     <div class="container">
       <div class="service-cat-header reveal">
         <div class="service-cat-icon">🎨</div>
         <div>
           <div class="section-label" style="margin-bottom:0.25rem;">Category 04</div>
-          <h2 class="section-title" id="modTitle" style="margin-bottom:0;">Custom Modifications</h2>
+          <h2 class="section-title" id="modTitle" style="margin-bottom:0;">Custom Builds & Aesthetics</h2>
         </div>
       </div>
-      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">From subtle styling to full ground-up custom builds – your imagination, our craftsmanship.</p>
+      <p class="section-subtitle reveal" style="margin-bottom:2.5rem;">Turn your motorcycle into a one-of-a-kind masterpiece – custom paint, cafe racers, bobbers & touring builds.</p>
 
       <div class="service-detail-grid">
+        <!-- Card 1 -->
         <div class="service-detail-card reveal reveal-delay-1">
-          <div class="icon">☕</div>
-          <h4>Cafe Racer Build</h4>
-          <p>Complete cafe racer conversion – clip-ons, rearsets, seat cowl, tank straps and race-inspired paint.</p>
-          <span class="price">Get Quote</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1-2 Weeks</span>
+              <span class="badge-tag-prem">💎 MASTERPIECE</span>
+            </div>
+            <div class="icon">☕</div>
+            <h4>Cafe Racer Full Conversion</h4>
+            <p>Full chassis modification, clip-on handlebars, rearset footpegs, custom cowl seat, retro fuel tank & race livery.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Handcrafted Subframe Loop</li>
+                <li><span class="check">✓</span> Custom Leather Tuck-and-Roll Seat</li>
+                <li><span class="check">✓</span> Vintage Exhaust & Spoke Wheels</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Get Quote</span>
+            <a href="booking.html?service=cafe-racer" class="btn btn-outline btn-sm">Get Quote</a>
+          </div>
         </div>
+
+        <!-- Card 2 -->
         <div class="service-detail-card reveal reveal-delay-2">
-          <div class="icon">🏕️</div>
-          <h4>Touring Setup</h4>
-          <p>Panniers, windshield, crash bars, aux lighting, GPS bracket and comfortable seat upgrades.</p>
-          <span class="price">Starting ₹ 8,999</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1 Day</span>
+              <span class="badge-tag-pop">TOURING SPEC</span>
+            </div>
+            <div class="icon">🏕️</div>
+            <h4>Long Distance Touring Setup</h4>
+            <p>Aluminum pannier racks, touring windshield, aux fog lights, GPS bracket, gel seat padding & crash protection.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Heavy Duty Top Box Racks</li>
+                <li><span class="check">✓</span> Dual Cree LED Fog Lights + Switch</li>
+                <li><span class="check">✓</span> Rider & Pillion Gel Cushioning</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 8,999</span>
+            <a href="booking.html?service=touring" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 3 -->
         <div class="service-detail-card reveal reveal-delay-3">
-          <div class="icon">🖌️</div>
-          <h4>Custom Paint</h4>
-          <p>Full body repaint, racing liveries, custom graphics, airbrushing and UV-protected clear coat finish.</p>
-          <span class="price">Starting ₹ 4,999</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 4-5 Days</span>
+            </div>
+            <div class="icon">🖌️</div>
+            <h4>Bespoke Custom Paint & Airbrushing</h4>
+            <p>Full bodywork strip down, sandblasting, primer, 3-coat metallic paint, airbrushed graphics & UV clear coat.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> DuPont & Sikkens Automotive Paint</li>
+                <li><span class="check">✓</span> Matte, Candy & Metallic Finishes</li>
+                <li><span class="check">✓</span> Custom Tank Decals & Stripes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 4,999</span>
+            <a href="booking.html?service=custom-paint" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 4 -->
         <div class="service-detail-card reveal reveal-delay-4">
-          <div class="icon">🏜️</div>
-          <h4>Off-Road / Scrambler</h4>
-          <p>High-fender conversion, knobby tyre setup, skid plate, bash plate and off-road suspension tune.</p>
-          <span class="price">Get Quote</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1-2 Weeks</span>
+            </div>
+            <div class="icon">🏜️</div>
+            <h4>Scrambler & Off-Road Conversion</h4>
+            <p>High front fender setup, dual-sport knobby tyres, heavy bash plate, wide handlebars and long travel forks.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Heavy Duty Aluminum Engine Guard</li>
+                <li><span class="check">✓</span> High-Clearance Up-swept Pipe</li>
+                <li><span class="check">✓</span> Off-Road Footpegs & Handguards</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Get Quote</span>
+            <a href="booking.html?service=scrambler" class="btn btn-outline btn-sm">Get Quote</a>
+          </div>
         </div>
+
+        <!-- Card 5 -->
         <div class="service-detail-card reveal reveal-delay-5">
-          <div class="icon">🎩</div>
-          <h4>Bobber / Chopper Style</h4>
-          <p>Fender chop, solo seat, custom handlebars, forward controls and blacked-out finish packages.</p>
-          <span class="price">Get Quote</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1-2 Weeks</span>
+            </div>
+            <div class="icon">🎩</div>
+            <h4>Bobber & Chopper Styling</h4>
+            <p>Chopped rear fender, solo spring seat, ape hanger / drag bars, forward controls & blacked-out engine casing.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Floating Solo Seat Bracket</li>
+                <li><span class="check">✓</span> Side-Mounted License Plate</li>
+                <li><span class="check">✓</span> Matte Black Powder Coating</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Get Quote</span>
+            <a href="booking.html?service=bobber" class="btn btn-outline btn-sm">Get Quote</a>
+          </div>
         </div>
+
+        <!-- Card 6 -->
         <div class="service-detail-card reveal reveal-delay-6">
-          <div class="icon">💡</div>
-          <h4>LED & Lighting Upgrade</h4>
-          <p>LED headlight conversion, DRL, auxiliary fog lights, turn signal upgrades and sequential indicators.</p>
-          <span class="price">Starting ₹ 1,499</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 2 Hours</span>
+            </div>
+            <div class="icon">💡</div>
+            <h4>LED Projector & Lighting Kit</h4>
+            <p>7-inch LED headlight unit, sequential LED indicators, DRL ring, underglow ambient lighting & fog lamps.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Plug-and-Play Relay Harness</li>
+                <li><span class="check">✓</span> 6000K Pure White Illumination</li>
+                <li><span class="check">✓</span> IP67 Waterproof Rating</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 1,499</span>
+            <a href="booking.html?service=lighting" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 7 -->
         <div class="service-detail-card reveal reveal-delay-1">
-          <div class="icon">🛡️</div>
-          <h4>Crash Guards & Protection</h4>
-          <p>Engine crash guards, frame sliders, tank pad, handlebar end weights and tail tidy kits.</p>
-          <span class="price">Starting ₹ 699</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 1 Hour</span>
+            </div>
+            <div class="icon">🛡️</div>
+            <h4>Crash Guards & Frame Sliders</h4>
+            <p>Custom powder-coated engine crash guards, axle sliders, lever guards & radiator grill protection.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Mild Steel Heavy Gauge Tube</li>
+                <li><span class="check">✓</span> CNC Machined Nylon Sliders</li>
+                <li><span class="check">✓</span> Direct Chassis Mount Points</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 699</span>
+            <a href="booking.html?service=crash-guards" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
         </div>
+
+        <!-- Card 8 -->
         <div class="service-detail-card reveal reveal-delay-2">
-          <div class="icon">🎒</div>
-          <h4>Luggage & Accessories</h4>
-          <p>Saddle bags, top box mounts, tank bags, phone/GPS mounts and rider comfort accessories.</p>
-          <span class="price">Starting ₹ 999</span>
+          <div>
+            <div class="service-card-meta">
+              <span class="duration-tag">⏱️ 45 Mins</span>
+            </div>
+            <div class="icon">🎒</div>
+            <h4>Luggage & Cockpit Accessories</h4>
+            <p>Mobile phone mounts with fast USB charging, tank bag rings, handlebar risers and tail tidy kits.</p>
+            <div class="service-checklist">
+              <ul>
+                <li><span class="check">✓</span> Vibration Dampened Phone Mount</li>
+                <li><span class="check">✓</span> Dual USB QC 3.0 Charger</li>
+                <li><span class="check">✓</span> CNC Ergonomic Handlebar Risers</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-card-footer">
+            <span class="price">Starting ₹ 999</span>
+            <a href="booking.html?service=accessories" class="btn btn-outline btn-sm">Book Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ THE BOSS MOTO ASSURANCE GRID ══ -->
+  <section class="assurance-section section-py" aria-labelledby="assuranceTitle">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-label">Why Choose Boss Moto Expertz</div>
+        <h2 class="section-title" id="assuranceTitle">The Boss Service Assurance</h2>
+        <p class="section-subtitle" style="margin:0 auto;">We combine state-of-the-art diagnostic technology with old-school motorcycle passion to deliver absolute perfection.</p>
+      </div>
+
+      <div class="assurance-grid">
+        <div class="assurance-card reveal reveal-delay-1">
+          <div class="assurance-icon">📄</div>
+          <h3>Digital Health Report</h3>
+          <p>Detailed high-resolution photo & diagnostic report sent directly to your WhatsApp before any work begins.</p>
+        </div>
+
+        <div class="assurance-card reveal reveal-delay-2">
+          <div class="assurance-icon">💰</div>
+          <h3>Flat-Rate Upfront Pricing</h3>
+          <p>Zero hidden costs or surprise bills. Every estimate is approved by you prior to replacing any component.</p>
+        </div>
+
+        <div class="assurance-card reveal reveal-delay-3">
+          <div class="assurance-icon">🚚</div>
+          <h3>Doorstep Pickup & Drop</h3>
+          <p>Covered, secure motorcycle transport available across Coimbatore for your convenience.</p>
+        </div>
+
+        <div class="assurance-card reveal reveal-delay-4">
+          <div class="assurance-icon">👨‍🔧</div>
+          <h3>Certified Master Mechanics</h3>
+          <p>Decades of collective experience tuning Royal Enfield, KTM, Triumph, BMW & exotic track bikes.</p>
         </div>
       </div>
     </div>
@@ -363,7 +977,7 @@
         </div>
         <div class="footer-col">
           <h4>Contact Info</h4>
-          <div class="footer-contact-item"><span class="icon">📍</span><span>42, Amarar Jeeva Main Road, Nalvar Layout, Coimbatore</span></div>
+          <div class="footer-contact-item"><span class="icon">📍</span><a href="https://maps.google.com/?q=11.0268,76.9634+(Boss+Moto+Expertz+-+Coimbatore)" target="_blank" rel="noopener noreferrer" style="color:inherit;">42, Amarar Jeeva Main Road, Nalvar Layout, Coimbatore ↗</a></div>
           <div class="footer-contact-item"><span class="icon">📞</span><a href="tel:+916379929963">+91 63 799 299 63</a></div>
           <div class="footer-contact-item"><span class="icon">🕐</span><span>Mon–Sat: 9AM – 7PM</span></div>
         </div>
@@ -386,5 +1000,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-
-

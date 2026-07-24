@@ -10,7 +10,7 @@
   <meta property="og:description" content="Precision engineering and custom modifications for every motorcycle." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="assets/logo.png" type="image/png" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=sunset_teal" />
 </head>
 <body>
 
@@ -29,6 +29,7 @@
         <li><a href="index.html" class="nav-link active">Home</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="brands.html" class="nav-link">Brands</a></li>
         <li><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -48,6 +49,7 @@
     <a href="index.html" class="nav-link active">Home</a>
     <a href="about.html" class="nav-link">About</a>
     <a href="services.html" class="nav-link">Services</a>
+    <a href="brands.html" class="nav-link">Brands</a>
     <a href="gallery.html" class="nav-link">Gallery</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <a href="booking.html" class="btn btn-primary">🔧 Book Service</a>
@@ -163,7 +165,7 @@
       <div class="section-header text-center reveal">
         <div class="section-label">Interactive Estimator</div>
         <h2 class="section-title" id="estimatorTitle">Instant Service & Price Calculator</h2>
-        <p class="section-subtitle" style="margin: 0 auto;">Select your motorcycle type and service package to get an instant estimated duration and price range.</p>
+        <p class="section-subtitle" style="margin: 0 auto;">Select your motorcycle CC displacement range (70cc – 1300cc+) and service package to get an instant estimated quote.</p>
       </div>
 
       <div class="estimator-box glass-card reveal">
@@ -171,12 +173,13 @@
           <!-- Selection Column -->
           <div class="estimator-controls">
             <div class="control-group">
-              <label class="control-label">1. Select Motorcycle Type</label>
+              <label class="control-label">1. Select Motorcycle Type & CC Range</label>
               <div class="pill-group" id="bikeCategoryGroup">
-                <button type="button" class="pill-btn active" data-category="commuter">🛵 Commuter (100–150cc)</button>
-                <button type="button" class="pill-btn" data-category="performance">⚡ Performance (150–400cc)</button>
-                <button type="button" class="pill-btn" data-category="classic">🏍️ Classic / Royal Enfield</button>
-                <button type="button" class="pill-btn" data-category="superbike">🏎️ Superbike (500cc+)</button>
+                <button type="button" class="pill-btn" data-category="moped">🛵 70cc – 110cc (Moped & Scooter)</button>
+                <button type="button" class="pill-btn active" data-category="commuter">🛵 110cc – 150cc (Commuter)</button>
+                <button type="button" class="pill-btn" data-category="performance">⚡ 150cc – 250cc (Sport & Executive)</button>
+                <button type="button" class="pill-btn" data-category="classic">🏍️ 250cc – 500cc (Classic & Mid-Cap)</button>
+                <button type="button" class="pill-btn" data-category="superbike">🏎️ 500cc – 1300cc+ (Superbike & Twin)</button>
               </div>
             </div>
 
@@ -195,7 +198,7 @@
           <div class="estimator-summary glass-card">
             <div class="summary-badge">Live Estimated Quote</div>
             <h3 class="summary-title" id="estPackageTitle">Periodic General Service</h3>
-            <div class="summary-bike" id="estBikeTitle">Commuter Motorcycle (100-150cc)</div>
+            <div class="summary-bike" id="estBikeTitle">Commuter Motorcycle (110–150cc)</div>
 
             <div class="summary-metrics">
               <div class="metric-item">
@@ -204,7 +207,7 @@
               </div>
               <div class="metric-item">
                 <span class="metric-label">Turnaround Time:</span>
-                <span class="metric-value time" id="estTime">3 – 5 Hours</span>
+                <span class="metric-value time" id="estTime">Up to 3 Hours</span>
               </div>
             </div>
 
@@ -247,12 +250,13 @@
           <h3>Master OEM Technicians</h3>
           <p>Factory-trained mechanics specializing in multi-brand diagnostics, 2-stroke restorations, and high-rpm superbike engines. Every machine receives individual master attention.</p>
           <div class="bento-brand-tags">
+            <span class="brand-tag">TVS & XL</span>
+            <span class="brand-tag">Hero</span>
+            <span class="brand-tag">Bajaj</span>
             <span class="brand-tag">Royal Enfield</span>
             <span class="brand-tag">KTM</span>
             <span class="brand-tag">Yamaha</span>
             <span class="brand-tag">Honda</span>
-            <span class="brand-tag">Kawasaki</span>
-            <span class="brand-tag">BMW</span>
           </div>
         </div>
 
@@ -281,7 +285,7 @@
         <div class="bento-card glass-card reveal reveal-delay-4">
           <div class="bento-icon">🚚</div>
           <h3>Doorstep Pickup & Delivery</h3>
-          <p>Hassle-free covered transport for your bike straight from your home or office.</p>
+          <p>Hassle-free covered transport for your machines straight from your home or office.</p>
         </div>
 
         <!-- Bento Item 6 -->
@@ -323,19 +327,33 @@
 
         <article class="service-card reveal reveal-delay-2">
           <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&q=75" alt="Engine Repair" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=75" alt="Engine Repair" loading="lazy" />
             <div class="service-img-overlay"></div>
-            <span class="service-badge accent">Expertise</span>
+            <span class="service-badge">Expert Precision</span>
           </div>
           <div class="service-body">
             <div class="icon">🔩</div>
-            <h3>Engine Overhaul & Tuning</h3>
-            <p>Engine diagnostics, cylinder re-boring, forged piston upgrades, valve timing adjustment, and complete power rebuilds.</p>
+            <h3>Engine Tune-Up & Overhaul</h3>
+            <p>Complete mechanical rebuild, cylinder re-bore, valve grinding, clutch disc renewal, and compression setup.</p>
             <a href="services.html#repairs" class="btn-ghost">View Specs <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></a>
           </div>
         </article>
 
         <article class="service-card reveal reveal-delay-3">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?w=600&q=75" alt="ECU Tuning" loading="lazy" />
+            <div class="service-img-overlay"></div>
+            <span class="service-badge">Performance</span>
+          </div>
+          <div class="service-body">
+            <div class="icon">💻</div>
+            <h3>ECU Remapping & Dyno</h3>
+            <p>Custom fuel-map calibration, speed limiter removal, quickshifter integration, and horsepower optimization.</p>
+            <a href="services.html#performance" class="btn-ghost">View Specs <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></a>
+          </div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-4">
           <div class="service-img">
             <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Custom Modification" loading="lazy" />
             <div class="service-img-overlay"></div>
@@ -346,19 +364,6 @@
             <h3>Custom Builds & Modification</h3>
             <p>Handcrafted Cafe Racers, Scramblers, Bobbers, custom exhaust systems, and bespoke frame modifications.</p>
             <a href="services.html#modifications" class="btn-ghost">View Specs <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></a>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-4">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1580311272855-8bab3b53f6c2?w=600&q=75" alt="ECU Tuning" loading="lazy" />
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <div class="icon">💻</div>
-            <h3>ECU Remapping & Dyno</h3>
-            <p>Custom ECU remapping, quickshifter installation, fuel map optimization, and speed limiter removal.</p>
-            <a href="services.html#performance" class="btn-ghost">View Specs <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></a>
           </div>
         </article>
 
@@ -404,20 +409,94 @@
       <div class="section-header text-center reveal">
         <div class="section-label">Supported Manufacturers</div>
         <h2 class="section-title" id="brandsTitle">We Master Every Machine</h2>
-        <p class="section-subtitle" style="margin:0 auto;">From entry-level commuters to high-revving track superbikes and classic vintage icons.</p>
+        <p class="section-subtitle" style="margin:0 auto;">Click any brand to view all available models, specs, and specialized maintenance packages (70cc – 1300cc+).</p>
       </div>
 
       <div class="brands-grid">
-        <div class="brand-card reveal reveal-delay-1"><div class="brand-logo-placeholder">Royal Enfield</div><div class="brand-subtitle">Himalayan · Classic · Continental GT</div></div>
-        <div class="brand-card reveal reveal-delay-2"><div class="brand-logo-placeholder">KTM</div><div class="brand-subtitle">Duke 390 · RC 390 · Adventure</div></div>
-        <div class="brand-card reveal reveal-delay-3"><div class="brand-logo-placeholder">Yamaha</div><div class="brand-subtitle">RX100 Legend · MT-15 · R15</div></div>
-        <div class="brand-card reveal reveal-delay-4"><div class="brand-logo-placeholder">Honda</div><div class="brand-subtitle">CB350 · Hornet · CBR</div></div>
-        <div class="brand-card reveal reveal-delay-5"><div class="brand-logo-placeholder">TVS</div><div class="brand-subtitle">Apache RR310 · RTR 200</div></div>
-        <div class="brand-card reveal reveal-delay-6"><div class="brand-logo-placeholder">Bajaj</div><div class="brand-subtitle">Dominar 400 · Pulsar NS</div></div>
-        <div class="brand-card reveal reveal-delay-1"><div class="brand-logo-placeholder">Suzuki</div><div class="brand-subtitle">Gixxer SF · Hayabusa</div></div>
-        <div class="brand-card reveal reveal-delay-2"><div class="brand-logo-placeholder">Kawasaki</div><div class="brand-subtitle">Ninja 300/400 · Z900</div></div>
-        <div class="brand-card reveal reveal-delay-3"><div class="brand-logo-placeholder">BMW Motorrad</div><div class="brand-subtitle">G310GS · S1000RR</div></div>
-        <div class="brand-card reveal reveal-delay-4"><div class="brand-logo-placeholder">Triumph</div><div class="brand-subtitle">Speed 400 · Scrambler 400X</div></div>
+        <a href="brands.html?brand=tvs" class="brand-card reveal reveal-delay-1" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/tvs.svg" alt="TVS Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">XL 100 · Apache RTR/RR · Ntorq · Ronin · Jupiter</div>
+        </a>
+        <a href="brands.html?brand=hero" class="brand-card reveal reveal-delay-2" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/hero.svg" alt="Hero Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Splendor · HF Deluxe · Xpulse 200 · Mavrick</div>
+        </a>
+        <a href="brands.html?brand=bajaj" class="brand-card reveal reveal-delay-3" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/bajaj.svg" alt="Bajaj Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Pulsar NS/N · Dominar 400 · Avenger · Platina</div>
+        </a>
+        <a href="brands.html?brand=royalenfield" class="brand-card reveal reveal-delay-4" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/royalenfield.svg" alt="Royal Enfield Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Himalayan 450 · Classic 350 · Continental GT</div>
+        </a>
+        <a href="brands.html?brand=yamaha" class="brand-card reveal reveal-delay-5" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/yamaha.svg" alt="Yamaha Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">RX100 Legend · MT-15 · R15 V4 · Aerox</div>
+        </a>
+        <a href="brands.html?brand=honda" class="brand-card reveal reveal-delay-6" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/honda.svg" alt="Honda Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">CB350 · Activa 6G · Hornet · CBR650R</div>
+        </a>
+        <a href="brands.html?brand=ktm" class="brand-card reveal reveal-delay-1" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/ktm.svg" alt="KTM Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Duke 390/250 · RC 390 · Adventure</div>
+        </a>
+        <a href="brands.html?brand=suzuki" class="brand-card reveal reveal-delay-2" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/suzuki.svg" alt="Suzuki Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Gixxer SF · Access 125 · Hayabusa</div>
+        </a>
+        <a href="brands.html?brand=kawasaki" class="brand-card reveal reveal-delay-3" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/kawasaki.svg" alt="Kawasaki Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Ninja 300/500 · Z900 · ZX-10R</div>
+        </a>
+        <a href="brands.html?brand=bmw" class="brand-card reveal reveal-delay-4" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/bmw.svg" alt="BMW Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">G 310 GS · S 1000 RR · R 1250 GS</div>
+        </a>
+        <a href="brands.html?brand=triumph" class="brand-card reveal reveal-delay-5" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/triumph.svg" alt="Triumph Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Speed 400 · Scrambler 400X · Street Triple</div>
+        </a>
+        <a href="brands.html?brand=jawa" class="brand-card reveal reveal-delay-6" style="text-decoration:none;">
+          <div class="brand-card-logo-wrap">
+            <img src="assets/brands/jawa.svg" alt="Jawa Logo" class="home-brand-logo" />
+            <span class="arrow-icon">↗</span>
+          </div>
+          <div class="brand-subtitle">Jawa 42 · Yezdi Roadster · Perak Bobber</div>
+        </a>
       </div>
     </div>
   </section>
@@ -581,7 +660,7 @@
           <h4>Workshop Location</h4>
           <div class="footer-contact-item">
             <span class="icon">📍</span>
-            <span>42, Amarar Jeeva Main Road,<br>Nalvar Layout, Coimbatore</span>
+            <a href="https://maps.google.com/?q=11.0268,76.9634+(Boss+Moto+Expertz+-+Coimbatore)" target="_blank" rel="noopener noreferrer" style="color:inherit;">42, Amarar Jeeva Main Road,<br>Nalvar Layout, Coimbatore ↗</a>
           </div>
           <div class="footer-contact-item">
             <span class="icon">📞</span>

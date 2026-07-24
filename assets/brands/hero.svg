@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="100%" height="100%">
+  <path fill="#E60012" d="M 10,5 L 28,12 L 28,45 L 10,38 Z"/>
+  <path fill="#000000" d="M 34,5 L 52,15 L 34,26 Z"/>
+  <path fill="#000000" d="M 34,29 L 52,40 L 34,48 Z"/>
+  <text x="60" y="38" font-family="'Impact', 'Arial Black', sans-serif" font-size="38" font-weight="bold" fill="#E60012" letter-spacing="1">Hero</text>
+</svg>
