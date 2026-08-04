@@ -1197,6 +1197,29 @@ textarea {
   color: var(--accent);
 }
 
+.bento-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid rgba(250, 114, 50, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento-brand-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 114, 50, 0.4);
+}
+
+.bento-brand-logo {
+  height: 22px;
+  max-width: 70px;
+  object-fit: contain;
+}
+
 @media (max-width: 992px) {
   .estimator-grid {
     grid-template-columns: 1fr;
@@ -3151,6 +3174,90 @@ textarea.form-control {
   margin: 2rem 0;
 }
 
+/* ==========================================================================
+   CAREERS & INVESTORS PAGES STYLES
+   ========================================================================== */
+.career-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: rgba(13, 27, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(250, 114, 50, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.job-header {
+  margin-bottom: 1rem;
+}
+
+.job-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(250, 114, 50, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(250, 114, 50, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.job-title-wrap h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.job-location {
+  font-size: 0.85rem;
+  color: var(--silver-dim);
+  margin-top: 0.3rem;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.job-desc {
+  color: var(--silver-dim);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.job-actions {
+  margin-top: auto;
+}
+
+
 .search-no-results h3 {
   font-family: var(--font-heading);
   font-size: 1.4rem;
@@ -3173,4 +3280,184 @@ textarea.form-control {
   0% { transform: scale(1); }
   50% { transform: scale(1.03); }
   100% { transform: scale(1); }
+}
+
+/* ─── 3D Marquee & Testimonials Showcase ────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+}
+
+.marquee-container {
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  height: 28rem;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 0.375rem;
+  perspective: 300px;
+  background: rgba(10, 15, 22, 0.6);
+  backdrop-filter: blur(16px);
+}
+
+.marquee-inner-3d {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  transform: translateX(-60px) translateY(0px) translateZ(-80px) rotateX(20deg) rotateY(-10deg) rotateZ(18deg);
+  transition: transform 0.5s ease;
+}
+
+.marquee-col {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0.5rem;
+  --duration: 40s;
+  --gap: 1rem;
+  gap: var(--gap);
+}
+
+.marquee-col-content {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: var(--gap);
+  justify-content: space-around;
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+}
+
+.marquee-col-content.reverse {
+  animation-direction: reverse;
+}
+
+.marquee-container:hover .marquee-col-content {
+  animation-play-state: paused;
+}
+
+.marquee-card {
+  width: 16rem;
+  padding: 1.15rem;
+  border-radius: 0.75rem;
+  background: rgba(18, 24, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.marquee-card:hover {
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+
+.marquee-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.marquee-avatar {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--accent);
+}
+
+.marquee-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.marquee-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.marquee-country {
+  font-size: 0.75rem;
+}
+
+.marquee-username {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.marquee-body {
+  margin-top: 0.75rem;
+  font-size: 0.825rem;
+  color: var(--silver-dim);
+  line-height: 1.5;
+}
+
+/* Gradients */
+.marquee-overlay-top {
+  pointer-events: none;
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 25%;
+  background: linear-gradient(to bottom, rgba(6, 10, 15, 0.95), transparent);
+  z-index: 5;
+}
+
+.marquee-overlay-bottom {
+  pointer-events: none;
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 25%;
+  background: linear-gradient(to top, rgba(6, 10, 15, 0.95), transparent);
+  z-index: 5;
+}
+
+.marquee-overlay-left {
+  pointer-events: none;
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 25%;
+  background: linear-gradient(to right, rgba(6, 10, 15, 0.95), transparent);
+  z-index: 5;
+}
+
+.marquee-overlay-right {
+  pointer-events: none;
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 25%;
+  background: linear-gradient(to left, rgba(6, 10, 15, 0.95), transparent);
+  z-index: 5;
 }
