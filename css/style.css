@@ -7,36 +7,53 @@
 
 /* ─── CSS Custom Properties ─────────────────────────────── */
 :root {
-  /* ── Sunset Teal & Vivid Coral Palette (Inspired by Sunset Photography) ── */
-  --black: #06232D;             /* Base Dark Midnight Teal */
-  --black-soft: #0A2E3B;        /* Secondary Dark Background */
-  --black-card: #0E3948;        /* Card Background */
-  --black-surface: #144455;     /* Elevated Surface / Hover */
+  /* ──────────────────────────────────────────────────────────
+     STEALTH OBSIDIAN BLACK & STERLING PLATINUM CHROME DESIGN
+     WITH SUBTLE INDIAN TRICOLOR (TIRANGA) ACCENTS 🇮🇳
+     ────────────────────────────────────────────────────────── */
+  --black: #050507;             /* Ultra Deep Obsidian Black */
+  --black-soft: #0C0C10;        /* Secondary Dark Background */
+  --black-card: #121218;        /* Dark Metallic Card Surface */
+  --black-surface: #1B1B24;     /* Elevated Interactive Surface */
   
-  --white: #F0F9FA;             /* Primary Text (Crisp Ice White) */
-  --white-dim: #C5E2E8;         /* Secondary Text (Ice Teal) */
-  --silver: #8BB8C1;            /* Muted Labels & Descriptions */
-  --silver-dim: #4B7D89;        /* Dim Borders & Subtle Accents */
+  --white: #FFFFFF;             /* Pure High-Contrast White */
+  --white-dim: #F1F5F9;         /* Sterling Platinum White */
+  --silver: #E2E8F0;            /* Liquid Metallic Platinum */
+  --silver-dim: #94A3B8;        /* Muted Sterling Silver */
   
-  --accent: #FA7232;            /* Swatch 1: Vivid Coral Orange */
-  --accent-dim: #F7B267;        /* Swatch 2: Warm Amber Glow */
-  --accent-glow: rgba(250, 114, 50, 0.28);
+  --accent: #FFFFFF;            /* Pure Sterling Platinum White Accent */
+  --accent-dim: #E2E8F0;        /* Soft Platinum Chrome Glow */
+  --accent-glow: rgba(255, 255, 255, 0.35);
   
-  --teal-muted: #419488;        /* Swatch 3: Muted Teal Green */
-  --teal-deep: #0B6A78;         /* Swatch 4: Deep Ocean Teal */
-  --teal-dark: #07333F;         /* Swatch 5: Midnight Teal */
+  --silver-accent: #FFFFFF;     /* Pure Platinum Silver Highlight */
+  --silver-glow: rgba(255, 255, 255, 0.3);
 
-  /* Legacy & HTML aliases */
-  --navy: #0A2E3B;
-  --deep-blue: #06232D;
-  --orange: #FA7232;
-  --orange-glow: rgba(250, 114, 50, 0.28);
-  --grad-orange: linear-gradient(135deg, #FA7232 0%, #F7B267 100%);
+  /* Indian Tricolor Tokens */
+  --saffron: #FF9933;           /* India Saffron */
+  --saffron-glow: rgba(255, 153, 51, 0.35);
+  --india-white: #FFFFFF;
+  --india-green: #138808;        /* India Emerald Green */
+  --india-green-glow: rgba(19, 136, 8, 0.35);
+  --chakra-blue: #002244;
+  
+  --grad-tiranga: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+  --grad-tiranga-subtle: linear-gradient(90deg, rgba(255, 153, 51, 0.22) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(19, 136, 8, 0.22) 100%);
 
-  /* Glass Effects */
-  --glass-bg: rgba(14, 57, 72, 0.82);
-  --glass-border: rgba(65, 148, 136, 0.25);
-  --glass-blur: blur(20px);
+  --teal-muted: #1E293B;
+  --teal-deep: #0C0C10;
+  --teal-dark: #050507;
+
+  /* Legacy & HTML Aliases */
+  --navy: #0C0C10;
+  --deep-blue: #050507;
+  --orange: #FF9933;
+  --orange-glow: rgba(255, 153, 51, 0.35);
+  --grad-orange: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%);
+
+  /* Glassmorphism & Metallic Borders */
+  --glass-bg: rgba(18, 18, 24, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(24px);
 
   /* Typography */
   --font-brand: 'Orbitron', sans-serif;
@@ -47,16 +64,17 @@
   --section-py: 6rem;
   --container-max: 1280px;
 
-  /* Transitions */
-  --t-fast: 0.2s ease;
-  --t-mid: 0.4s ease;
-  --t-slow: 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Transitions & Smooth Motion */
+  --t-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --t-mid: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --t-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Atmospheric Gradients */
-  --grad-hero: radial-gradient(circle at 80% 20%, rgba(250, 114, 50, 0.12) 0%, transparent 40%), linear-gradient(135deg, #06232D 0%, #0B6A78 55%, #051F27 100%);
-  --grad-accent: linear-gradient(135deg, #FA7232 0%, #F7B267 100%);
-  --grad-card: linear-gradient(145deg, #0E3948 0%, #0A2E3B 100%);
-  --grad-section: linear-gradient(180deg, #06232D 0%, #0A2E3B 100%);
+  /* Gradients */
+  --grad-hero: radial-gradient(circle at 75% 25%, rgba(255, 153, 51, 0.12) 0%, transparent 45%), radial-gradient(circle at 25% 75%, rgba(19, 136, 8, 0.12) 0%, transparent 45%), linear-gradient(135deg, #030304 0%, #0C0C10 100%);
+  --grad-accent: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%);
+  --grad-silver: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+  --grad-card: linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.01) 100%), linear-gradient(145deg, #121218 0%, #0C0C10 100%);
+  --grad-section: linear-gradient(180deg, #050507 0%, #0C0C10 100%);
 }
 
 /* ─── Reset & Base ───────────────────────────────────────── */
@@ -208,17 +226,19 @@ textarea {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #FFFFFF;
-  border: 1.5px solid var(--accent);
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 100%);
+  color: #050507;
+  border: 1.5px solid #FFFFFF;
+  font-weight: 800;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
 }
 
 .btn-primary:hover {
-  background: var(--accent-dim);
-  border-color: var(--accent-dim);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--accent-glow);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.45);
 }
 
 .btn-outline {
@@ -1357,7 +1377,7 @@ textarea {
   top: 1rem;
   right: 1rem;
   background: var(--accent);
-  color: #fff;
+  color: #000;
   backdrop-filter: blur(10px);
   font-size: 0.68rem;
   font-weight: 700;
@@ -1976,13 +1996,13 @@ footer {
   font-family: var(--font-brand);
   font-size: 2rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #000000;
   line-height: 1;
 }
 
 .story-image-badge .text {
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.90);
+  color: rgba(0, 0, 0, 0.90);
 }
 
 .vision-mission {
@@ -3460,4 +3480,156 @@ textarea.form-control {
   width: 25%;
   background: linear-gradient(to left, rgba(6, 10, 15, 0.95), transparent);
   z-index: 5;
+}
+
+/* ============================================================
+   ULTRA-PREMIUM THEME OVERRIDES & SWITCHER STYLES
+   ============================================================ */
+
+/* Theme 1: Cyberpunk Carbon & Liquid Gold */
+
+
+/* ─── ENHANCED BLACK & STERLING SILVER CARD & TAB EFFECTS ─── */
+.glass-card, .service-card, .job-card, .stat-card, .vm-card, .bento-card {
+  position: relative;
+  background: var(--grad-card) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden;
+}
+
+.glass-card::before, .service-card::before, .job-card::before, .bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover::before, .service-card:hover::before, .job-card:hover::before, .bento-card:hover::before {
+  left: 140%;
+}
+
+.glass-card:hover, .service-card:hover, .job-card:hover, .stat-card:hover, .vm-card:hover, .bento-card:hover {
+  transform: translateY(-6px) scale(1.01) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Enhanced Tab / Pill Buttons */
+.pill-btn {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: var(--silver) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.pill-btn:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 255, 255, 0.15) !important;
+}
+
+.pill-btn.active {
+  background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%) !important;
+  border-color: #FFFFFF !important;
+  color: #050507 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.35) !important;
+}
+
+
+/* ─── SUBTLE INDIAN TRICOLOR (TIRANGA) DESIGN ELEMENTS 🇮🇳 ─── */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad-tiranga);
+  z-index: 1002;
+  box-shadow: 0 0 10px rgba(255, 153, 51, 0.4), 0 0 10px rgba(19, 136, 8, 0.4);
+}
+
+.section-divider {
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 153, 51, 0.45) 25%, rgba(255, 255, 255, 0.7) 50%, rgba(19, 136, 8, 0.45) 75%, transparent 100%) !important;
+  margin: 0 auto !important;
+  border: none !important;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.1rem;
+  background: var(--grad-tiranga-subtle) !important;
+  border: 1px solid rgba(255, 153, 51, 0.35) !important;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: var(--grad-tiranga);
+  opacity: 0.85;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 30px rgba(255, 153, 51, 0.22), 0 0 20px rgba(19, 136, 8, 0.22) !important;
+}
+
+.footer-bottom {
+  position: relative;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background: var(--grad-tiranga);
+}
+
+.brand-btn-logo {
+  max-height: 24px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.home-brand-logo {
+  max-height: 48px;
+  max-width: 150px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
 }

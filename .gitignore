@@ -1,0 +1,12 @@
+# Temporary & Lock files
+~$*
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
