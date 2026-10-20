@@ -1,0 +1,9 @@
+# robots.txt for Boss Moto Expertz
+User-agent: *
+Allow: /
+Disallow: /show_logos.html
+Disallow: /*.py$
+Disallow: /*.json$
+
+# XML Sitemap Location
+Sitemap: https://bossmotoexpertz.com/sitemap.xml
