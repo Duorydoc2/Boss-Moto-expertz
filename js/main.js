@@ -685,7 +685,7 @@ try {
 
       items: [
 
-        '✓ Full Synthetic Engine Oil & Filter Replacement',
+        '✓ Premium Oil & Filter Replacement',
 
         '✓ 40-Point Mechanical & Electrical Safety Audit',
 
@@ -809,7 +809,7 @@ try {
 
     if (estPackageTitle) estPackageTitle.textContent = pkg.name;
 
-    if (estPriceRange) estPriceRange.textContent = `₹${minP.toLocaleString('en-IN')} – ₹${maxP.toLocaleString('en-IN')}`;
+    if (estPriceRange) estPriceRange.textContent = 'Based on vehicle condition';
 
     if (estTime) estTime.textContent = activePackage === 'general' ? cat.generalTime : pkg.baseTime;
 
