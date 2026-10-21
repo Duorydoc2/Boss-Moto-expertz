@@ -1,7 +1,46 @@
-/* ============================================================
-   BOSS MOTO EXPERTZ – Design System
-   Bright Periwinkle Blue & Electric Indigo Theme
-   ============================================================ */
+/* ============================================================================
+   BOSS MOTO EXPERTZ – MASTER STYLESHEET (style.css)
+   Theme: Stealth Obsidian Black & Sterling Platinum Chrome with Subtle Indian Tricolor
+   ============================================================================
+   TABLE OF CONTENTS:
+    01. CSS Custom Properties / Design Tokens (:root)
+    02. Reset & Base Typography Elements
+    03. Global Utility Classes & Layout Containers
+    04. Core Typography Hierarchy (h1–h6, .section-title)
+    05. Button Styles (.btn, .btn-primary, .btn-outline, .btn-ghost)
+    06. Header & Desktop Navigation (.navbar, .nav-logo, .nav-links)
+    07. Mobile Navigation Drawer & Hamburger Toggle (.mobile-menu)
+    08. Hero Section & Animated Particles (.hero, .hero-bg)
+    09. Glassmorphism Surface Cards (.glass-card)
+    10. Bike & Workshop Telemetry Badges
+    11. Interactive Quick Estimator Component
+    12. Bento Grid System (.bento-grid, .bento-card)
+    13. Why Choose Us Feature Cards (.why-card)
+    14. Services Grid Cards (.service-card)
+    15. Brands We Service Grid (.brands-grid, .brand-card)
+    16. Showcase / Gallery Grid (.gallery-grid)
+    17. Process / Workflow Timeline (.timeline, .step)
+    18. Testimonials Section (.testimonials, .testi-card)
+    19. Call to Action Banner (.cta-banner)
+    20. Site Footer (.footer, .footer-col)
+    21. Page Hero Banner (inner sub-pages header)
+    22. About Page Layout & Storytelling
+    23. Services Page & Detail Service Cards
+    24. Gallery Page & Masonry Grid Layout
+    25. Lightbox Modal (.lightbox)
+    26. Booking Page Layout & Form Elements
+    27. Contact Page Layout, Map & Details
+    28. Floating WhatsApp Action Button
+    29. Scroll Animations & Reveal Transitions
+    30. Section Dividers & Accent Lines
+    31. Responsive Media Queries (@media breakpoints)
+    32. Services Page Extended Search & Filter Bar
+    33. 3D Marquee & Testimonials Showcase
+    34. Enhanced Black & Sterling Silver Card Effects
+    35. Subtle Indian Tricolor Design Elements
+    36. Local SEO FAQ Accordions & Service Areas
+    37. Accessibility (Skip to Content & Focus Rings)
+   ============================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
 

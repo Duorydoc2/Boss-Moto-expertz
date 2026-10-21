@@ -1,103 +1,56 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Bikes & Superbike Brands Serviced in Coimbatore | Boss Moto Expertz</title>
-
   <meta name="description" content="Multi-brand motorcycle specialists in Coimbatore. We service Royal Enfield, KTM, Yamaha, Honda, Kawasaki, BMW Motorrad, Triumph, TVS, Bajaj, and vintage models." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://bossmotoexpertz.com/brands" />
   <link rel="icon" href="assets/logo.png" type="image/png" />
-
   <link rel="stylesheet" href="css/style.css?v=108" />
 
   <style>
 
     /* ── Brands Catalog Page Styles ── */
-
     .brand-catalog-filters {
-
       display: flex;
-
       gap: 0.75rem;
-
       flex-wrap: wrap;
-
       justify-content: center;
-
       padding: 2rem 0 1rem;
-
     }
-
-
 
     .brand-filter-btn {
-
       padding: 0.55rem 1.4rem;
-
       border-radius: 50px;
-
       border: 1.5px solid var(--glass-border);
-
       background: rgba(14, 57, 72, 0.85);
-
       color: var(--white);
-
       font-family: var(--font-heading);
-
       font-size: 0.95rem;
-
       font-weight: 600;
-
       letter-spacing: 0.04em;
-
       cursor: pointer;
-
       transition: all var(--t-fast);
-
       backdrop-filter: var(--glass-blur);
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
-
       min-height: 48px;
-
     }
-
-
 
     .brand-filter-btn:hover {
-
       border-color: var(--accent);
-
       background: rgba(250, 114, 50, 0.2);
-
     }
-
-
 
     .brand-filter-btn.active {
-
       background: var(--accent);
-
       border-color: var(--accent);
-
       color: #000;
-
       box-shadow: 0 4px 20px var(--accent-glow);
-
     }
-
-
 
     .brand-btn-logo {
       height: 28px;
@@ -106,413 +59,209 @@
       padding: 2px 10px;
       border-radius: 4px;
       object-fit: contain;
-
       max-width: 110px;
-
       object-fit: contain;
-
       vertical-align: middle;
-
       transition: transform var(--t-fast);
-
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)) brightness(1.2);
-
     }
-
-
 
     .brand-filter-btn:hover .brand-btn-logo {
-
       transform: scale(1.1);
-
     }
-
-
 
     .brand-models-grid {
-
       display: grid;
-
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-
       gap: 1.75rem;
-
       margin-top: 2rem;
-
       transition: all var(--t-mid);
-
     }
-
-
 
     .brand-models-grid.filtered-single-view {
-
       display: flex;
-
       flex-direction: column;
-
       width: 100%;
-
     }
-
-
 
     .brand-detail-card {
-
       background: var(--black-card);
-
       border: 1px solid var(--glass-border);
-
       border-radius: 16px;
-
       padding: 2rem;
-
       transition: all var(--t-mid);
-
       position: relative;
-
       display: flex;
-
       flex-direction: column;
-
       justify-content: space-between;
-
       overflow: hidden;
-
     }
-
-
 
     .brand-models-grid.filtered-single-view .brand-detail-card {
-
       width: 100%;
-
       max-width: 100%;
-
       display: grid;
-
       grid-template-columns: 1.15fr 0.85fr;
-
       gap: 2.5rem;
-
       align-items: start;
-
       padding: 2.5rem;
-
       border-color: var(--accent);
-
       box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
-
     }
-
-
 
     .brand-detail-card:hover {
-
       transform: translateY(-5px);
-
       border-color: var(--accent);
-
       box-shadow: 0 16px 40px rgba(250, 114, 50, 0.15);
-
     }
-
-
 
     .brand-card-left-panel {
-
       display: flex;
-
       flex-direction: column;
-
       justify-content: space-between;
-
       height: 100%;
-
     }
-
-
 
     .brand-card-header {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 1rem;
-
       margin-bottom: 1.25rem;
-
       padding-bottom: 1rem;
-
       border-bottom: 1px solid var(--glass-border);
-
     }
-
-
 
     .brand-logo-container {
-
       height: 56px;
-
       padding: 0.4rem 1.25rem;
-
       border-radius: 12px;
-
       background: rgba(255, 255, 255, 0.92);
-
       border: 1px solid rgba(255, 255, 255, 0.3);
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
-
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-
     }
-
-
 
     .brand-card-logo {
-
       width: 140px;
-
       height: 38px;
-
       object-fit: contain;
-
       display: block;
-
     }
-
-
 
     .brand-origin-tag {
-
       font-size: 0.75rem;
-
       color: var(--accent);
-
       text-transform: uppercase;
-
       letter-spacing: 0.1em;
-
       font-weight: 600;
-
     }
-
-
 
     .model-list-title {
-
       font-family: var(--font-heading);
-
       font-size: 0.85rem;
-
       font-weight: 700;
-
       letter-spacing: 0.08em;
-
       text-transform: uppercase;
-
       color: var(--silver-dim);
-
       margin-bottom: 0.75rem;
-
     }
-
-
 
     .model-tags {
-
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 0.5rem;
-
       margin-bottom: 1.5rem;
-
     }
-
-
 
     .model-chip {
-
       background: var(--black-surface);
-
       border: 1px solid var(--glass-border);
-
       color: var(--white);
-
       font-size: 0.825rem;
-
       padding: 0.35rem 0.75rem;
-
       border-radius: 6px;
-
       font-weight: 500;
-
       transition: all var(--t-fast);
-
     }
-
-
 
     .model-chip.highlight {
-
       background: rgba(250, 114, 50, 0.12);
-
       border-color: rgba(250, 114, 50, 0.3);
-
       color: var(--accent);
-
       font-weight: 600;
-
     }
-
-
 
     .brand-specs-info {
-
       font-size: 0.85rem;
-
       color: var(--silver-dim);
-
       line-height: 1.65;
-
       margin-bottom: 1.5rem;
-
     }
-
-
 
     .brand-book-btn {
-
       width: 100%;
-
       margin-top: auto;
-
     }
-
-
 
     /* Right Panel for Filtered Wide View */
-
     .brand-card-right-panel {
-
       display: none;
-
       background: rgba(14, 57, 72, 0.55);
-
       border: 1px solid var(--glass-border);
-
       border-radius: 14px;
-
       padding: 1.75rem;
-
       backdrop-filter: blur(15px);
-
       height: 100%;
-
     }
-
-
 
     .brand-models-grid.filtered-single-view .brand-card-right-panel {
-
       display: flex;
-
       flex-direction: column;
-
       justify-content: space-between;
-
     }
-
-
 
     .brand-card-right-panel h4 {
-
       font-family: var(--font-heading);
-
       font-size: 1.15rem;
-
       font-weight: 700;
-
       color: var(--white);
-
       margin-bottom: 0.75rem;
-
       display: flex;
-
       align-items: center;
-
       gap: 0.5rem;
-
     }
-
-
 
     .brand-service-highlights {
-
       display: flex;
-
       flex-direction: column;
-
       gap: 0.65rem;
-
       margin-bottom: 1.5rem;
-
     }
-
-
 
     .brand-service-highlight-item {
-
       display: flex;
-
       align-items: center;
-
       gap: 0.6rem;
-
       font-size: 0.85rem;
-
       color: var(--silver-dim);
-
     }
-
-
 
     .brand-service-highlight-item span.icon {
-
       color: var(--accent);
-
       font-weight: bold;
-
     }
-
-
 
     @media (max-width: 992px) {
-
       .brand-models-grid.filtered-single-view .brand-detail-card {
-
         grid-template-columns: 1fr;
-
         gap: 1.75rem;
-
         padding: 1.75rem;
-
       }
-
     }
-
   </style>
-
 
       <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -587,1413 +336,698 @@
   }
   </script>
 </head>
-
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-
-
   <!-- NAVBAR -->
-
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
-
     <div class="container">
-
       <a href="index.html" class="nav-logo">
-
         <img src="assets/logo.png" alt="Boss Moto Expertz Logo" onerror="this.style.display='none'" />
-
         <div class="nav-brand">
-
           <span class="brand-boss">BOSS</span>
-
           <span class="brand-sub">MOTO EXPERTZ</span>
-
         </div>
-
       </a>
-
       <ul class="nav-links" role="list">
-
         <li><a href="index.html" class="nav-link">Home</a></li>
-
         <li><a href="about.html" class="nav-link">About</a></li>
-
         <li><a href="services.html" class="nav-link">Services</a></li>
-
         <li><a href="brands.html" class="nav-link active">Brands & Models</a></li>
-
         <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-
         <li><a href="careers.html" class="nav-link">Careers</a></li>
-
         <li><a href="investors.html" class="nav-link">Investors</a></li>
-
         <li><a href="contact.html" class="nav-link">Contact</a></li>
-
       </ul>
-
       <a href="booking.html" class="btn btn-primary btn-sm nav-cta">🔧 Book Service</a>
-
       <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
-
     </div>
 
   </nav>
-
   <div class="mobile-menu" id="mobileMenu">
-
     <a href="index.html" class="nav-link">Home</a>
-
     <a href="about.html" class="nav-link">About</a>
-
     <a href="services.html" class="nav-link">Services</a>
-
     <a href="brands.html" class="nav-link active">Brands & Models</a>
-
     <a href="gallery.html" class="nav-link">Gallery</a>
-
     <a href="careers.html" class="nav-link">Careers</a>
-
     <a href="investors.html" class="nav-link">Investors</a>
-
     <a href="contact.html" class="nav-link">Contact</a>
-
     <a href="booking.html" class="btn btn-primary">🔧 Book Service</a>
-
   </div>
 
   <main id="main-content" role="main">
 
-
-
   <!-- PAGE HERO -->
-
   <section class="page-hero" aria-labelledby="brandHeroTitle">
-
     <div class="page-hero-bg"></div>
-
     <div class="container" style="position:relative;z-index:1;">
 
       <nav class="breadcrumb" aria-label="Breadcrumb">
-
         <a href="index.html">Home</a>
-
         <span class="breadcrumb-sep">&rsaquo;</span>
-
         <span>Supported Brands & Models</span>
 
       </nav>
-
       <div class="section-label">Complete Fleet & Machine Expertise</div>
-
       <h1 class="section-title" id="brandHeroTitle" style="font-size:clamp(2.2rem, 5vw, 3.8rem);">Supported Bike Brands & Models</h1>
-
       <p class="section-subtitle">We service all Indian & imported motorcycles, mopeds, scooters, classics, and performance superbikes (70cc – 1300cc+).</p>
-
     </div>
 
   </section>
-
-
 
   <!-- BRAND CATALOG SECTION -->
-
   <section class="section-py" style="background:var(--black-soft);" aria-label="Brand Catalog">
-
     <div class="container">
-
-      
 
       <!-- Filter Bar with Official Brand Logo Buttons -->
-
       <div class="brand-catalog-filters" id="brandFilters">
-
         <button class="brand-filter-btn active" data-filter="all"><span>All Manufacturers</span></button>
-
         <button class="brand-filter-btn" data-filter="tvs" aria-label="TVS"><img src="assets/brands/tvs.png?v=103" alt="TVS Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="hero" aria-label="Hero MotoCorp"><img src="assets/brands/hero.png?v=103" alt="Hero Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="bajaj" aria-label="Bajaj"><img src="assets/brands/bajaj.png?v=103" alt="Bajaj Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="royalenfield" aria-label="Royal Enfield"><img src="assets/brands/royalenfield.png?v=103" alt="Royal Enfield Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="yamaha" aria-label="Yamaha"><img src="assets/brands/yamaha.png?v=103" alt="Yamaha Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="honda" aria-label="Honda"><img src="assets/brands/honda.png?v=103" alt="Honda Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="ktm" aria-label="KTM"><img src="assets/brands/ktm.png?v=103" alt="KTM Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="suzuki" aria-label="Suzuki"><img src="assets/brands/suzuki.png?v=103" alt="Suzuki Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="kawasaki" aria-label="Kawasaki"><img src="assets/brands/kawasaki.png?v=103" alt="Kawasaki Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="bmw" aria-label="BMW Motorrad"><img src="assets/brands/bmw.jpg?v=103" alt="BMW Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="triumph" aria-label="Triumph"><img src="assets/brands/triumph.png?v=103" alt="Triumph Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="jawa" aria-label="Jawa Yezdi"><img src="assets/brands/jawa.jpg?v=103" alt="Jawa Logo" class="brand-btn-logo" /></button>
-
         <button class="brand-filter-btn" data-filter="electric" aria-label="EV Electric"><img src="assets/brands/electric.svg?v=103" alt="EV Logo" class="brand-btn-logo" /></button>
-
       </div>
-
-
 
       <!-- Models Grid -->
-
       <div class="brand-models-grid" id="brandGrid">
 
-        
-
         <!-- TVS -->
-
         <div class="brand-detail-card reveal" data-brand="tvs">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/tvs.png?v=103" alt="TVS Motor Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Indian OEM · 70cc – 312cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">TVS XL Super (70cc)</span>
-
               <span class="model-chip highlight">TVS XL 100 Heavy Duty</span>
-
               <span class="model-chip">Jupiter 110 / 125</span>
-
               <span class="model-chip">TVS Raider 125</span>
-
               <span class="model-chip">Ntorq 125 Race Edition</span>
-
               <span class="model-chip">Apache RTR 160 4V</span>
-
               <span class="model-chip">Apache RTR 200 4V</span>
-
               <span class="model-chip">TVS Ronin 225</span>
-
               <span class="model-chip">Apache RR 310</span>
-
               <span class="model-chip">TVS iQube EV</span>
-
             </div>
-
             <p class="brand-specs-info">Full periodic maintenance, CVT transmission service, clutch overhaul, engine re-bore, and electrical harness repair for all TVS moped, scooter & motorcycle series.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book TVS Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss TVS Workshop Care</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> 100% Genuine TVS Factory OEM Parts in stock</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Computerized OBD Diagnostic Scanning & Error Clearing</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Moped, Scooter & Apache Superbike Master Technicians</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Express 3-Hour Turnaround & Pickup-Drop Available</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20TVS%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- HERO MOTOCORP -->
-
         <div class="brand-detail-card reveal" data-brand="hero">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/hero.png?v=103" alt="Hero MotoCorp Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Indian OEM · 97cc – 440cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">HF 100 / HF Deluxe</span>
-
               <span class="model-chip highlight">Splendor Plus / i3S</span>
-
               <span class="model-chip">Passion Pro / XTEC</span>
-
               <span class="model-chip">Hero Pleasure+ / Xoom 110</span>
-
               <span class="model-chip">Glamour XTEC (125cc)</span>
-
               <span class="model-chip">Xtreme 160R / 200S</span>
-
               <span class="model-chip">Xpulse 200 4V / Rally</span>
-
               <span class="model-chip">Mavrick 440</span>
-
             </div>
-
             <p class="brand-specs-info">Engine tuning, carburettor & FI cleaning, clutch plate renewal, fork oil seal replacement, and fast 3-hour turnaround maintenance.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Hero Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Hero Workshop Care</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Genuine Hero Factory Parts & Engine Oil</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> High-Efficiency Commuter & Xpulse Rally Specialists</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Carbuettor Sonic Clean & Fuel Injector Flush</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Same-Day Delivery Guarantee on Periodic Service</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Hero%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- BAJAJ -->
-
         <div class="brand-detail-card reveal" data-brand="bajaj">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/bajaj.png?v=103" alt="Bajaj Auto Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Indian OEM · 100cc – 400cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Platina 100 / 110 H-Gear</span>
-
               <span class="model-chip highlight">CT 110X / CT 125X</span>
-
               <span class="model-chip">Pulsar 125 / 150 Classic</span>
-
               <span class="model-chip">Pulsar NS200 / N250</span>
-
               <span class="model-chip">Avenger Cruise 220</span>
-
               <span class="model-chip">Dominar 250 / 400</span>
-
               <span class="model-chip">Chetak Premium EV</span>
-
             </div>
-
             <p class="brand-specs-info">DTS-i engine valve timing adjustment, liquid cooling radiator flush, chain kit replacement, and ECU diagnostics for all Bajaj models.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Bajaj Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Bajaj Workshop Care</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> DTS-i & Triple Spark Ignition Tuning</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Dominar 400 Liquid Cooling & Touring Setup</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Genuine Bajaj Parts & Motul Synthetic Oils</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> 90-Day Full Workmanship Guarantee</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Bajaj%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- ROYAL ENFIELD -->
-
         <div class="brand-detail-card reveal" data-brand="royalenfield">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/royalenfield.png?v=103" alt="Royal Enfield Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Classic & Heritage · 350cc – 650cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Bullet 350 (Cast Iron / UCE)</span>
-
               <span class="model-chip highlight">Classic 350 Reborn</span>
-
               <span class="model-chip">Hunter 350 / Meteor 350</span>
-
               <span class="model-chip">Himalayan 411 / Scram</span>
-
               <span class="model-chip">Himalayan 450 Sherpa</span>
-
               <span class="model-chip">Interceptor 650</span>
-
               <span class="model-chip">Continental GT 650</span>
-
               <span class="model-chip">Shotgun 650 / Super Meteor</span>
-
             </div>
-
             <p class="brand-specs-info">Specialist heavy-twin & single-cylinder tuning, tappet adjustment, custom exhaust fitting, cafe racer build conversions, and ceramic coating.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Royal Enfield Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Royal Enfield Studio</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> 650 Twin Synchronised Throttle Body Tuning</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Custom Bobber, Scrambler & Cafe Racer Conversions</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Red Rooster / AEW / Gursewak Exhaust Fitments</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Full Engine Overhaul & Tappet Clearance Tuning</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Royal%20Enfield%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- YAMAHA -->
-
         <div class="brand-detail-card reveal" data-brand="yamaha">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/yamaha.png?v=103" alt="Yamaha Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Performance & Legend · 100cc – 1000cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">RX100 / RX135 / RXZ Legend</span>
-
               <span class="model-chip highlight">RayZR 125 / Fascino</span>
-
               <span class="model-chip">FZ-S FI V4 / FZ-X</span>
-
               <span class="model-chip">Aerox 155 Maxi Scooter</span>
-
               <span class="model-chip">MT-15 V2 / R15 V4</span>
-
               <span class="model-chip">YZF-R3 / MT-03</span>
-
             </div>
-
             <p class="brand-specs-info">2-Stroke RX Series restoration specialists, VVA system tuning, quickshifter calibration, delta-box chassis alignment, and race performance upgrades.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Yamaha Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Yamaha Performance Lab</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> RX100 / RX135 2-Stroke Full Engine Restoration</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> R15 / MT-15 Quickshifter & ECU Diagnostics</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Aerox 155 CVT & Engine Performance Mods</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Genuine Yamaha Genuine Parts (YGP) Guaranteed</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Yamaha%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- HONDA -->
-
         <div class="brand-detail-card reveal" data-brand="honda">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/honda.png?v=103" alt="Honda Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Japanese Precision · 110cc – 1000cc+</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Activa 6G / Dio 110</span>
-
               <span class="model-chip highlight">Shine 100 / SP125</span>
-
               <span class="model-chip">Unicorn 160</span>
-
               <span class="model-chip">Hornet 2.0 / CB200X</span>
-
               <span class="model-chip">CB350 H'ness / CB350RS</span>
-
               <span class="model-chip">CBR650R / Africa Twin</span>
-
             </div>
-
             <p class="brand-specs-info">PGM-FI electronic fuel injection cleaning, smooth clutch setup, brake pad replacement, and liquid-cooled engine servicing.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Honda Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Honda Precision Care</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> PGM-FI Throttle Body Diagnostic Sync</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> CB350 H'ness Exhaust & ECU Tuning</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Activa 6G Express CVT Belt & Clutch Overhaul</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Genuine Honda Genuine Parts & Engine Oil</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Honda%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- KTM -->
-
         <div class="brand-detail-card reveal" data-brand="ktm">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/ktm.png?v=103" alt="KTM Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">High Performance · 125cc – 1290cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Duke 125 / RC 125</span>
-
               <span class="model-chip highlight">Duke 200 / RC 200</span>
-
               <span class="model-chip">Duke 250 / ADV 250</span>
-
               <span class="model-chip">Duke 390 / RC 390</span>
-
               <span class="model-chip">Adventure 390 / Rally</span>
-
               <span class="model-chip">790 / 890 / 1290 Super Duke</span>
-
             </div>
-
             <p class="brand-specs-info">Track-level valve shim setting, ECU Dyno remapping, WP suspension fork seal & oil change, high-temp engine coolant flush, and performance air filter fitment.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book KTM Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss KTM Track Workshop</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Micrometer Precision Valve Shim Adjustment</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Stage 1/2 ECU Fuel Map & Quickshifter Setup</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> WP Apex Suspension Fork Rebuild & Motul Oil</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> High-Temp Engine Ice Coolant Vacuum Flush</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20KTM%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- SUZUKI -->
-
         <div class="brand-detail-card reveal" data-brand="suzuki">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/suzuki.png?v=103" alt="Suzuki Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Japanese OEM · 124cc – 1340cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Access 125 / Burgman</span>
-
               <span class="model-chip highlight">Avenis 125</span>
-
               <span class="model-chip">Gixxer 150 / SF 150</span>
-
               <span class="model-chip">Gixxer SF 250</span>
-
               <span class="model-chip">V-Strom SX 250</span>
-
               <span class="model-chip">Hayabusa GSX1300R</span>
-
             </div>
-
             <p class="brand-specs-info">Oil-cooled SEP engine diagnostics, brake caliper rebuild, drive belt & roller replacement for scooters, and superbike maintenance.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Suzuki Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Suzuki Superbike Care</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Hayabusa GSX1300R Superbike Certified Diagnostics</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Gixxer 250 SOCS Oil-Cooling System Overhaul</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Access 125 & Burgman CVT Transmission Tuning</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Original Suzuki Spare Parts & Motul Lubricants</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Suzuki%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- KAWASAKI -->
-
         <div class="brand-detail-card reveal" data-brand="kawasaki">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/kawasaki.png?v=103" alt="Kawasaki Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Superbike Specialist · 300cc – 1000cc+</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Ninja 300 / 400 / 500</span>
-
               <span class="model-chip highlight">Z650 / Vulcan S 650</span>
-
               <span class="model-chip">Versys 650</span>
-
               <span class="model-chip">Z900 / Z900RS</span>
-
               <span class="model-chip">ZX-10R Superbike</span>
-
               <span class="model-chip">Versys 1000 / Ninja 1000SX</span>
-
             </div>
-
             <p class="brand-specs-info">Multi-cylinder throttle body synchronization, spark plug replacement, brake disc resurfacing, and high-rpm engine tuning.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Kawasaki Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Kawasaki Superbike Lab</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Multi-Cylinder Vacuum Gauge Throttle Body Sync</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Z900 / Ninja 300 Full System Exhaust & Remap</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Brembo / EBC Sintered Brake Pads & Bleeding</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Kawasaki Factory OEM Spares & Motul 300V Oil</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Kawasaki%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- BMW -->
-
         <div class="brand-detail-card reveal" data-brand="bmw">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/bmw.jpg?v=103" alt="BMW Motorrad Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">German Engineering · 313cc – 1250cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">G 310 R / G 310 GS</span>
-
               <span class="model-chip highlight">F 850 GS / F 900 R</span>
-
               <span class="model-chip">S 1000 RR Superbike</span>
-
               <span class="model-chip">R 1250 GS Adventure</span>
-
             </div>
-
             <p class="brand-specs-info">Precision OBD digital diagnostics, ABS brake module bleeding, slipper clutch service, and full synthetic oil changes with OEM filters.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book BMW Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss BMW Motorrad Studio</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> OBD-II Diagnostics & Service Interval Reset</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> S1000RR & GS Adventure Touring Prep</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Liqui Moly Synthetic Oils & OEM Filters</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> German Spec Precision Torque Workmanship</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20BMW%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- TRIUMPH -->
-
         <div class="brand-detail-card reveal" data-brand="triumph">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/triumph.png?v=103" alt="Triumph Motorcycles Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">British Heritage · 400cc – 1200cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Speed 400 / Scrambler 400X</span>
-
               <span class="model-chip highlight">Street Triple 765 RS</span>
-
               <span class="model-chip">Tiger 850 / 900 Sport</span>
-
               <span class="model-chip">Bonneville T120 / Speed Twin</span>
-
             </div>
-
             <p class="brand-specs-info">TR-Series single & triple cylinder tuning, chain sprocket replacement, suspension setup, and original fluid changes.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Triumph Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Triumph Heritage Workshop</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Speed 400 / Scrambler 400X Scheduled Service</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Street Triple 765 Triple-Cylinder Tuning</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Bonneville Custom Exhaust & Chrome Polish</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Genuine Triumph OEM Replacement Parts</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Triumph%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- JAWA / YEZDI -->
-
         <div class="brand-detail-card reveal" data-brand="jawa">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/jawa.jpg?v=103" alt="Jawa Yezdi Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Classic Revival · 293cc – 334cc</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">Jawa Classic / 42</span>
-
               <span class="model-chip highlight">Yezdi Roadster / Scrambler</span>
-
               <span class="model-chip">Yezdi Adventure</span>
-
               <span class="model-chip">Jawa Perak / 42 Bobber</span>
-
             </div>
-
             <p class="brand-specs-info">Twin-pipe exhaust tuning, liquid cooling service, dual-channel ABS maintenance, and custom bobber accessories installation.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book Jawa Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss Jawa & Yezdi Studio</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Twin Exhaust System Decibel & Note Tuning</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Perak Custom Bobber Seat & Bar End Mirrors</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Radiator Cooling Flush & ECU Error Diagnostics</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Original Factory Spares & Fast Turnaround</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20Jawa%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- ELECTRIC / ATHER / OLA -->
-
         <div class="brand-detail-card reveal" data-brand="electric">
-
           <div class="brand-card-left-panel">
-
             <div class="brand-card-header">
-
               <div class="brand-logo-container">
-
                 <img src="assets/brands/electric.svg?v=103" alt="EV Electric Logo" class="brand-card-logo" />
-
               </div>
-
               <span class="brand-origin-tag">Next-Gen Mobility · All Battery Capacities</span>
-
             </div>
-
             <div class="model-list-title">Popular Models & Machines:</div>
-
             <div class="model-tags">
-
               <span class="model-chip highlight">TVS iQube / Chetak EV</span>
-
               <span class="model-chip highlight">Ather Rizta / 450S / 450X</span>
-
               <span class="model-chip">Ola S1 Air / S1 Pro</span>
-
               <span class="model-chip">Ather 450 Apex</span>
-
               <span class="model-chip">Ultraviolette F77 Mach 2</span>
-
             </div>
-
             <p class="brand-specs-info">Belt drive tension adjustment, disc brake service, suspension overhauls, high-voltage battery insulation audit, and tire replacement.</p>
-
             <a href="booking.html" class="btn btn-primary brand-book-btn">Book EV Service &rarr;</a>
-
           </div>
-
-
-
           <div class="brand-card-right-panel">
-
             <h4>🛠️ Boss EV Tech Hub</h4>
-
             <div class="brand-service-highlights">
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Gates Carbon Belt Drive Tension Calibration</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> High-Voltage Safety Check & Brake Regeneration Audit</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Suspension Fork Seal & Disc Brake Bleeding</div>
-
               <div class="brand-service-highlight-item"><span class="icon">&#10003;</span> Certified Electric Scooter Technicians</div>
-
             </div>
-
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:auto;">
-
               <a href="booking.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking</a>
-
               <a href="https://wa.me/916379929963?text=Hi%20Boss%20Moto%20Expertz,%20I%20would%20like%20to%20inquire%20about%20EV%20service" target="_blank" rel="noopener" class="btn btn-outline btn-sm">💬 WhatsApp</a>
-
             </div>
-
           </div>
-
         </div>
-
-
-
       </div>
-
     </div>
 
   </section>
-
-
 
   <!-- CTA BANNER -->
-
   <section class="cta-section" aria-label="Call to Action">
-
     <div class="container">
-
       <div class="cta-inner">
-
         <div class="cta-text reveal">
-
           <div class="tagline">Doorstep Pickup & Delivery</div>
-
           <h2>Servicing All Machines Straight From Your Home or Office</h2>
-
         </div>
-
         <div class="cta-actions reveal reveal-delay-2">
-
           <a href="booking.html" class="btn btn-primary" id="brandCtaBook"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="premium-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Schedule Booking Now</a>
-
         </div>
-
       </div>
-
     </div>
 
   </section>
-
-
 
   <!-- FOOTER -->
   </main>
 
-
   <footer>
-
     <div class="container">
-
       <div class="footer-grid">
-
         <div class="footer-brand">
-
           <img src="assets/logo.png" alt="Boss Moto Expertz" onerror="this.style.display='none'" />
-
           <p>Coimbatore's premier motorcycle performance studio and multi-brand service workshop. Engineered for perfection.</p>
-
           <div class="footer-social">
-
             <a href="https://www.instagram.com/boss_moto_expertz" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.125em; margin-right:4px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-
             <a href="https://www.youtube.com/@Bossmotoexpertz" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">▶️</a>
-
             <a href="https://wa.me/916379929963" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">💬</a>
-
           </div>
-
         </div>
-
         <div class="footer-col">
-
           <h4>Quick Links</h4>
-
           <ul>
-
             <li><a href="index.html">&rarr; Home</a></li>
-
             <li><a href="about.html">&rarr; About Us</a></li>
-
             <li><a href="services.html">&rarr; Services & Pricing</a></li>
-
             <li><a href="brands.html">&rarr; Supported Brands</a></li>
-
             <li><a href="gallery.html">&rarr; Work Gallery</a></li>
-
             <li><a href="careers.html">&rarr; Careers</a></li>
-
             <li><a href="investors.html">&rarr; Investors</a></li>
-
             <li><a href="contact.html">&rarr; Contact Us</a></li>
-
           </ul>
-
         </div>
-
         <div class="footer-col">
-
           <h4>Services</h4>
-
           <ul>
-
             <li><a href="services.html#maintenance">&rarr; General Service</a></li>
-
             <li><a href="services.html#repairs">&rarr; Engine Repair</a></li>
-
             <li><a href="services.html#performance">&rarr; ECU Tuning</a></li>
-
             <li><a href="services.html#modifications">&rarr; Custom Builds</a></li>
-
           </ul>
-
         </div>
-
         <div class="footer-col">
-
           <h4>Contact Info</h4>
-
           <div class="footer-contact-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.125em; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><span>Mon – Sat: 9:00 AM – 7:00 PM<br><strong style="color:var(--orange);">Sunday: Based on Appointment</strong></span></div>
-
         </div>
-
       </div>
-
       <div class="footer-bottom">
-
         <p>© 2026 Boss Moto Expertz. All rights reserved.</p>
-
         <div class="footer-tagline">PRECISION · PERFORMANCE · PASSION</div>
-
       </div>
-
     </div>
-
   </footer>
-
-
 
   <script src="js/main.js?v=108"></script>
 
   <script>
 
     // Filter Brand Catalog by category or URL param ?brand=tvs
-
     document.addEventListener('DOMContentLoaded', () => {
-
       const filterBtns = document.querySelectorAll('.brand-filter-btn');
-
       const brandCards = document.querySelectorAll('.brand-detail-card');
-
       const grid = document.getElementById('brandGrid');
 
-
-
       function filterBrand(brandKey) {
-
         filterBtns.forEach(btn => {
-
           btn.classList.toggle('active', btn.dataset.filter === brandKey);
-
         });
-
-
-
         if (brandKey === 'all') {
-
           grid.classList.remove('filtered-single-view');
-
         } else {
-
           grid.classList.add('filtered-single-view');
-
         }
-
-
-
         let firstMatch = null;
-
-
-
         brandCards.forEach(card => {
-
           if (brandKey === 'all' || card.dataset.brand === brandKey) {
-
             const targetDisplay = grid.classList.contains('filtered-single-view') ? 'grid' : 'flex';
-
             card.style.setProperty('display', targetDisplay, 'important');
-
             card.classList.add('visible'); // Force visible state so reveal opacity doesn't hide it!
-
             if (!firstMatch) firstMatch = card;
-
           } else {
-
             card.style.setProperty('display', 'none', 'important');
-
           }
-
         });
-
-
-
         if (firstMatch && brandKey !== 'all') {
-
           firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
         }
-
       }
-
-
-
       filterBtns.forEach(btn => {
-
         btn.addEventListener('click', (e) => {
-
           e.preventDefault();
-
           filterBrand(btn.dataset.filter);
-
         });
-
       });
 
-
-
       // Enable click functionality on ALL model chips
-
       document.querySelectorAll('.model-chip').forEach(chip => {
-
         chip.style.cursor = 'pointer';
-
         chip.title = `Click to book service for ${chip.textContent.trim()}`;
-
         chip.addEventListener('click', (e) => {
-
           e.stopPropagation();
-
           const card = chip.closest('.brand-detail-card');
-
           const brandAttr = card ? (card.dataset.brand || '') : '';
-
           const modelName = chip.textContent.trim();
 
           window.location.href = `tel:+916379929963`;
-
         });
-
       });
 
-
-
       // Check URL query param e.g. brands.html?brand=tvs
-
       const urlParams = new URLSearchParams(window.location.search);
-
       const brandParam = urlParams.get('brand');
-
       if (brandParam) {
-
         const cleanBrand = brandParam.toLowerCase().replace(/[^a-z]/g, '');
-
         const targetBtn = document.querySelector(`.brand-filter-btn[data-filter="${cleanBrand}"]`);
-
         if (targetBtn) {
-
           filterBrand(cleanBrand);
-
         } else {
-
           filterBrand('all');
-
         }
-
       }
-
     });
-
   </script>
-
 </body>
-
 </html>
-
-
-
-
-
